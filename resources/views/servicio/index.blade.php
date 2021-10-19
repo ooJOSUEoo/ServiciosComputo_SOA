@@ -21,12 +21,12 @@
             </div>
         </div>
     </div>
-    <div class="container bg-warning">
-        <div class="d-flex flex-wrap justify-content-around mb-4">
-            <div class="w-25">
-                <a href=""><p class="fs-2"></p></a>
-                <a href=""><img src="" alt="" class="w-100"></a>
-                <p class="fs-4"></p>
+    <div class="container-lg bg-warning">
+        <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive">
+            <div class="post my-2 mx-1 h-25 border-2 border-success" style="border: solid;">
+                <a href=""><p class="fs-2 text-center">Reparacion de computadoras</p></a>
+                <a href=""><img src="https://cursoseducativos.site/wp-content/uploads/2021/01/repas.png" alt="" class="w-100 h-50"></a>
+                <p class="fs-5 text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             </div>
         </div>
     </div>

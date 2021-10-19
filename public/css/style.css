@@ -27,3 +27,21 @@
     width: 100%;
     height: 100%;
 }
+.post{
+    width: 25%;
+}
+
+
+
+
+@media screen and (max-width: 1199px) {
+    .post{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .post{
+        width: 85% !important;
+    }
+}
