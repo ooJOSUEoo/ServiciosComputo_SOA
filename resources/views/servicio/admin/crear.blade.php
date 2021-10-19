@@ -97,7 +97,7 @@
                 <span class="text-danger">* Obligatorio</span>
             </div>
 
-            <div class="col-md-6 p-2 mb-3">
+            <div class="col-md-6 p-2 mb-3"> 
                 <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
                 <input class="form-control" type="file" name="img4S" id="formFile" required>
                 <span class="text-danger">* Obligatorio</span>
