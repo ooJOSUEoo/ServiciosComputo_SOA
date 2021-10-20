@@ -27,7 +27,11 @@
     @endif
     <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
             @foreach($servicios as $servicio) 
-            <div class="post my-2 mx-1 h-25 border-2 border-success" style="border: solid;">
+            @if($servicio->TipoS == '1')
+            <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-primary" style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
+            @else
+            <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success" style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
+            @endif
                 <a href=""><p class="fs-2 text-center">{{$servicio->NombreS}}</p></a>
                 <a href=""><img src="{{asset('storage').'/'.$servicio->Logo}}" alt="{{$servicio->NombreS}}" class="w-100" style="height: 200px;"></a>
                 <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
