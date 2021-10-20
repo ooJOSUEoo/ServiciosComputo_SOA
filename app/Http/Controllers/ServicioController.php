@@ -78,10 +78,12 @@ class ServicioController extends Controller
      * @param  \App\Models\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function edit(Servicio $servicio)
+    public function edit($id)
     {
         //
-        return view('servicio.admin.editar');
+        $servicio = Servicio::findOrFail($id);
+
+        return view('servicio.admin.editar', compact('servicio'));
     }
 
     /**
