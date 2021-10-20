@@ -29,7 +29,7 @@
             @foreach($servicios as $servicio) 
             <div class="post my-2 mx-1 h-25 border-2 border-success" style="border: solid;">
                 <a href=""><p class="fs-2 text-center">{{$servicio->NombreS}}</p></a>
-                <a href=""><img src="{{$servicio->Logo}}" alt="{{$servicio->NombreS}}" class="w-100 h-50"></a>
+                <a href=""><img src="{{asset('storage').'/'.$servicio->Logo}}" alt="{{$servicio->NombreS}}" class="w-100 h-50"></a>
                 <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
                 @if(isset(Auth::user()->name))
                 <div class="container d-flex justify-content-around">
