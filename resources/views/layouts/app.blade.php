@@ -20,13 +20,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm pri">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm pri fixed-top">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     Servicios Computo
@@ -57,7 +58,28 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('login') }}">Ayuda</a>
                         </li>
-                        &nbsp;___&nbsp;
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4 mt-5">
+            @yield('content')
+        </main>
+
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm pri">
+            <div class="container">
+                <a class="navbar-brand text-white" href="{{ url('/') }}">
+                    Servicios Computo
+                </a>
+
+                <div class="" id="">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto text-white">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('login') }}">Ayuda</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -73,12 +95,13 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
+                            
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-top dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -90,29 +113,6 @@
                             </div>
                         </li>
                         @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm pri">
-            <div class="container">
-                <a class="navbar-brand text-white" href="{{ url('/') }}">
-                    Servicios Computo
-                </a>
-                
-                <div class="" id="">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto text-white">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">Ayuda</a>
-                        </li>
-                        
                     </ul>
                 </div>
             </div>

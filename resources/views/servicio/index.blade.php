@@ -25,7 +25,7 @@
     @if(isset(Auth::user()->name))
         <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
     @endif
-    <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive">
+    <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
             @foreach($servicios as $servicio) 
             <div class="post my-2 mx-1 h-25 border-2 border-success" style="border: solid;">
                 <a href=""><p class="fs-2 text-center">{{$servicio->NombreS}}</p></a>
