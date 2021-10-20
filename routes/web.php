@@ -23,6 +23,10 @@ Route::get('/Qsomos', function () {
     return view('servicio.QueSomos');
 });
 
+Route::get('/ayuda', function () {
+    return view('servicio.ayuda');
+});
+
 Route::resource('servicio', ServicioController::class); 
 
 Auth::routes();

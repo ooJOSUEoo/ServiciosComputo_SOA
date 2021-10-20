@@ -23,6 +23,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+
 </head>
 
 <body>
@@ -32,6 +35,13 @@
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     Servicios Computo
                 </a>
+
+                <form class="form-inline mt-2 mt-md-0 position-relative">
+                    <input class="form-control mr-sm-2 sec border-primary placeholder-white text-white" type="text" placeholder="Buscar" aria-label="Search">
+                    <button class="btn text-primary my-2 my-sm-0 position-absolute" style="left: 75%;" type="submit"><i
+                            class="bi bi-search"></i></button>
+                </form>
+
                 <button class="navbar navbar-toggler navbar-dark bg-dark border-0" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -78,7 +88,7 @@
                     <ul class="navbar-nav ml-auto text-white">
 
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">Ayuda</a>
+                            <a class="nav-link text-white" href="{{ url('/ayuda') }}">Ayuda</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -95,13 +105,14 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            
+
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-top dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-top dropdown-menu-right"
+                                aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
