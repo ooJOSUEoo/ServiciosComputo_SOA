@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
+use App\Models\Servicio;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,9 @@ use App\Http\Controllers\ServicioController;
 |
 */
 
-Route::get('/', function () {
-    return view('servicio.index');
-});
+Route::redirect('/', 'servicio/');
+Route::redirect('/home', 'servicio/');
+
 
 Route::get('/Qsomos', function () {
     return view('servicio.QueSomos');

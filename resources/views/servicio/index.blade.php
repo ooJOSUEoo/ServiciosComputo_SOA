@@ -22,12 +22,27 @@
         </div>
     </div>
     <div class="container-lg bg-warning">
-        <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive"> 
+    @if(isset(Auth::user()->name))
+        <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
+    @endif
+    <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive">
+            @foreach($servicios as $servicio) 
             <div class="post my-2 mx-1 h-25 border-2 border-success" style="border: solid;">
-                <a href=""><p class="fs-2 text-center">Reparacion de computadoras</p></a>
-                <a href=""><img src="https://cursoseducativos.site/wp-content/uploads/2021/01/repas.png" alt="" class="w-100 h-50"></a>
-                <p class="fs-5 text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                <a href=""><p class="fs-2 text-center">{{$servicio->NombreS}}</p></a>
+                <a href=""><img src="{{$servicio->Logo}}" alt="{{$servicio->NombreS}}" class="w-100 h-50"></a>
+                <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
+                @if(isset(Auth::user()->name))
+                <div class="container d-flex justify-content-around">
+                    <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" class="btn btn-secondary">Editar</a>
+                    <form action="{{url('/servicio/'.$servicio->id)}}" method="post">
+                    @csrf
+                    {{method_field('DELETE')}}
+                    <button type="submit" onclick="return confirm('Seguro de borrarlo??')" class="btn btn-danger">Borrar</button>
+                    </form>
+                </div>
+                @endif
             </div>
+            @endforeach
         </div>
     </div>
 </div>

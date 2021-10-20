@@ -42,6 +42,21 @@ class ServicioController extends Controller
         //$datosServicio = request()->all();
 
         $datosServicio = request()->except('_token');
+
+        if (($request->hasFile('Logo'))&&
+        ($request->hasFile('img1S'))&&
+        ($request->hasFile('img2S'))&&
+        ($request->hasFile('img3S'))&&
+        ($request->hasFile('img4S'))&&
+        ($request->hasFile('img5S'))) {
+            $datosServicio['Logo'] = $request->file('Logo')->store('uploads', 'public');
+            $datosServicio['img1S'] = $request->file('img1S')->store('uploads', 'public');
+            $datosServicio['img2S'] = $request->file('img2S')->store('uploads', 'public');
+            $datosServicio['img3S'] = $request->file('img3S')->store('uploads', 'public');
+            $datosServicio['img4S'] = $request->file('img4S')->store('uploads', 'public');
+            $datosServicio['img5S'] = $request->file('img5S')->store('uploads', 'public');
+        }
+
         Servicio::insert($datosServicio);
         return response()->json($datosServicio);
     }
@@ -66,6 +81,7 @@ class ServicioController extends Controller
     public function edit(Servicio $servicio)
     {
         //
+        return view('servicio.admin.editar');
     }
 
     /**
@@ -86,9 +102,12 @@ class ServicioController extends Controller
      * @param  \App\Models\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Servicio $servicio)
+    public function destroy($id)
     {
         //
+        Servicio::destroy($id);
+        
+        return redirect('servicio');
     }
 
 }
