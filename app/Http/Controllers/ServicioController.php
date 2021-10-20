@@ -82,7 +82,6 @@ class ServicioController extends Controller
     {
         //
         $servicio = Servicio::findOrFail($id);
-
         return view('servicio.admin.editar', compact('servicio'));
     }
 
@@ -93,9 +92,16 @@ class ServicioController extends Controller
      * @param  \App\Models\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Servicio $servicio)
+    public function update(Request $request, $id)
     {
         //
+        $datosServicio = request()->except(['_token','_method']);
+        Servicio::where('id','=',$id)->update($datosServicio);
+
+        $servicio = Servicio::findOrFail($id);
+        return view('servicio.admin.editar', compact('servicio'));
+
+
     }
 
     /**
