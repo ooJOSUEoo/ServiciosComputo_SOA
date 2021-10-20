@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicio;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Storage;
 
 class ServicioController extends Controller
 {
@@ -43,18 +46,23 @@ class ServicioController extends Controller
 
         $datosServicio = request()->except('_token');
 
-        if (($request->hasFile('Logo'))&&
-        ($request->hasFile('img1S'))&&
-        ($request->hasFile('img2S'))&&
-        ($request->hasFile('img3S'))&&
-        ($request->hasFile('img4S'))&&
-        ($request->hasFile('img5S'))) {
+        if ($request->hasFile('Logo')){
             $datosServicio['Logo'] = $request->file('Logo')->store('uploads', 'public');
-            $datosServicio['img1S'] = $request->file('img1S')->store('uploads', 'public');
-            $datosServicio['img2S'] = $request->file('img2S')->store('uploads', 'public');
-            $datosServicio['img3S'] = $request->file('img3S')->store('uploads', 'public');
-            $datosServicio['img4S'] = $request->file('img4S')->store('uploads', 'public');
-            $datosServicio['img5S'] = $request->file('img5S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img1S')){
+                $datosServicio['img1S'] = $request->file('img1S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img2S')){
+                $datosServicio['img2S'] = $request->file('img2S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img3S')){
+                $datosServicio['img3S'] = $request->file('img3S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img4S')) {
+                $datosServicio['img4S'] = $request->file('img4S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img5S')) {
+                $datosServicio['img5S'] = $request->file('img5S')->store('uploads', 'public');
         }
 
         Servicio::insert($datosServicio);
@@ -96,8 +104,39 @@ class ServicioController extends Controller
     {
         //
         $datosServicio = request()->except(['_token','_method']);
-        Servicio::where('id','=',$id)->update($datosServicio);
 
+        if ($request->hasFile('Logo')){
+            $servicio = Servicio::findOrFail($id);
+            Storage::delete('public/'.$servicio->Logo);
+            $datosServicio['Logo'] = $request->file('Logo')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img1S')){
+            $servicio = Servicio::findOrFail($id);
+            Storage::delete('public/'.$servicio->Img1S);
+            $datosServicio['img1S'] = $request->file('img1S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img2S')){
+            $servicio = Servicio::findOrFail($id);
+            Storage::delete('public/'.$servicio->Img2S);
+            $datosServicio['img2S'] = $request->file('img2S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img3S')){
+            $servicio = Servicio::findOrFail($id);
+            Storage::delete('public/'.$servicio->Img3S);
+            $datosServicio['img3S'] = $request->file('img3S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img4S')) {
+            $servicio = Servicio::findOrFail($id);
+            Storage::delete('public/'.$servicio->Img4S);
+            $datosServicio['img4S'] = $request->file('img4S')->store('uploads', 'public');
+        }
+        if ($request->hasFile('img5S')) {
+            $servicio = Servicio::findOrFail($id);
+            Storage::delete('public/'.$servicio->Img5S);
+            $datosServicio['img5S'] = $request->file('img5S')->store('uploads', 'public');
+        }
+
+        Servicio::where('id','=',$id)->update($datosServicio);
         $servicio = Servicio::findOrFail($id);
         return view('servicio.admin.editar', compact('servicio'));
 

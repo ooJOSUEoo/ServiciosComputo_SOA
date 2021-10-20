@@ -8,7 +8,7 @@
 <div class="mb-3">
     <label for="formFile" class="form-label text-white">Imagen Principal</label>
     <input class="form-control" type="file" name="Logo" id="formFile">
-    <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="{{$servicio->NombreS}}" style="height: 30%; width: 40%;"></a>
+    <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;"></a>
 </div>
 
 <div class="form-floating mb-3">
@@ -86,13 +86,13 @@
     <div class="col-md-6 p-2 mb-3">
         <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
         <input class="form-control" type="file" name="img1S" id="formFile">
-        <img src="{{asset('storage').'/'.$servicio->Img1S}}" alt="{{$servicio->NombreS}}" style="height: 30%; width: 40%;"></a>
+        <img src="{{asset('storage').'/'.$servicio->Img1S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;"></a>
     </div>
 
     <div class="col-md-6 p-2 mb-3">
         <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
         <input class="form-control" type="file" name="img2S" id="formFile">
-        <img src="{{asset('storage').'/'.$servicio->Img2S}}" alt="{{$servicio->NombreS}}" style="height: 30%; width: 40%;"></a>
+        <img src="{{asset('storage').'/'.$servicio->Img2S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;"></a>
     </div>
 </div>
 
@@ -100,20 +100,20 @@
     <div class="col-md-6 p-2 mb-3">
         <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
         <input class="form-control" type="file" name="img3S" id="formFile">
-            <img src="{{asset('storage').'/'.$servicio->Img3S}}" alt="{{$servicio->NombreS}}" style="height: 30%; width: 40%;"></a>
+            <img src="{{asset('storage').'/'.$servicio->Img3S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;"></a>
     </div>
 
     <div class="col-md-6 p-2 mb-3">
         <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
         <input class="form-control" type="file" name="img4S" id="formFile">
-            <img src="{{asset('storage').'/'.$servicio->Img4S}}" alt="{{$servicio->NombreS}}" style="height: 30%; width: 40%;"></a>
+            <img src="{{asset('storage').'/'.$servicio->Img4S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;"></a>
     </div>
 </div>
 
 <div class="mb-3">
     <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
     <input class="form-control" type="file" name="img5S" id="formFile">
-        <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="{{$servicio->NombreS}}" style="height: 30%; width: 40%;"></a>
+        <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;"></a>
 </div>
 
 <label for="tipo" class="text-white">Status</label>
