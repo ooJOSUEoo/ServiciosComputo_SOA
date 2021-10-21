@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="container-lg bg-warning py-1">
+    <div class="container-lg bg-warning py-1"> 
         @if(isset(Auth::user()->name))
         <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
         @endif

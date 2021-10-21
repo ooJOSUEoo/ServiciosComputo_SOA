@@ -42,6 +42,51 @@ class ServicioController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos=[
+            'NombreS'=>'required|string|max:50',
+            'Logo'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'DescripcionS'=>'required||string|max:500',
+            'UbicacionS'=>'required||string|max:100',
+            'AtiendeS'=>'required||string|max:50',
+            'TelS'=>'required||tel|max:15', 
+            'Img1S'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'Img2S'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'Img3S'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'Img4S'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'Img5S'=>'required|max:10000|mimes:jpeg,png,jpg',
+        ];
+        $mensaje = [
+            'NombreS.required'=>'El nombre es requerido',
+            'DescripcionS.required'=>'La descripcion es requerida',
+            'UbicacionS.required'=>'La ubicacion es requerida',
+            'AtiendeS.required'=>'La persona que atiende es requerida',
+            'TelS.required'=>'El numero de telefono es requerido',
+            'Logo.required'=>'La imagen principal es requerida',
+            'Img1S.required'=>'La imagen N.1 de descripcion es requerida',
+            'Img2S.required'=>'La imagen N.2 de descripcion es requerida',
+            'Img3S.required'=>'La imagen N.3 de descripcion es requerida',
+            'Img4S.required'=>'La imagen N.4 de descripcion es requerida',
+            'Img5S.required'=>'La imagen N.5 de descripcion es requerida',
+
+            'Logo.max:10000'=>'La imagen principal es muy pesada, deve ser menor a la 10mb',
+            'Img1S.max:10000'=>'La imagen N.1 de descripcion es muy pesada, deve ser menor a la 10mb',
+            'Img2S.max:10000'=>'La imagen N.2 de descripcion es muy pesada, deve ser menor a la 10mb',
+            'Img3S.max:10000'=>'La imagen N.3 de descripcion es muy pesada, deve ser menor a la 10mb',
+            'Img4S.max:10000'=>'La imagen N.4 de descripcion es muy pesada, deve ser menor a la 10mb',
+            'Img5S.max:10000'=>'La imagen N.5 de descripcion es muy pesada, deve ser menor a la 10mb',
+
+            'Logo.mimes'=>'La imagen principal deve ser jpeg, jpg o png',
+            'Img1S.mimes'=>'La imagen N.1 de descripcion deve ser jpeg, jpg o png',
+            'Img2S.mimes'=>'La imagen N.2 de descripcion deve ser jpeg, jpg o png',
+            'Img3S.mimes'=>'La imagen N.3 de descripcion deve ser jpeg, jpg o png',
+            'Img4S.mimes'=>'La imagen N.4 de descripcion deve ser jpeg, jpg o png',
+            'Img5S.mimes'=>'La imagen N.5 de descripcion deve ser jpeg, jpg o png',
+            ''=>'',
+        ];
+
+        $this->validate($request, $campos, $mensaje);
+
         //$datosServicio = request()->all();
 
         $datosServicio = request()->except('_token');

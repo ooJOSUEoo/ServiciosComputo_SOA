@@ -1,3 +1,13 @@
+@if(count($errors)>0)
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="form-floating mb-3">
     <input type="text" name="NombreS" class="form-control" id="floatingInput" placeholder="-"
         value="{{isset($servicio->NombreS)?$servicio->NombreS:''}}">
@@ -87,7 +97,7 @@
 </div>
 
 <div class="mb-3">
-    <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
+    <label for="formFile" class="form-label text-white">Imagen de descripcción N.1</label>
     <input class="form-control" type="file" name="img1S" id="formFile">
     @if(isset($servicio->Img1S))
     <img src="{{asset('storage').'/'.$servicio->Img1S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;">
@@ -95,15 +105,15 @@
 </div>
 
 <div class="mb-3">
-    <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
+    <label for="formFile" class="form-label text-white">Imagen de descripcción N.2</label>
     <input class="form-control" type="file" name="img2S" id="formFile">
     @if(isset($servicio->Img2S))
     <img src="{{asset('storage').'/'.$servicio->Img2S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;">
     @endif
-</div>
+</div> 
 
 <div class="mb-3">
-    <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
+    <label for="formFile" class="form-label text-white">Imagen de descripcción N.3</label>
     <input class="form-control" type="file" name="img3S" id="formFile">
     @if(isset($servicio->Img3S))
     <img src="{{asset('storage').'/'.$servicio->Img3S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;">
@@ -111,7 +121,7 @@
 </div>
 
 <div class="mb-3">
-    <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
+    <label for="formFile" class="form-label text-white">Imagen de descripcción N.4</label>
     <input class="form-control" type="file" name="img4S" id="formFile">
     @if(isset($servicio->Img4S))
     <img src="{{asset('storage').'/'.$servicio->Img4S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;">
@@ -119,7 +129,7 @@
 </div>
 
 <div class="mb-3">
-    <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
+    <label for="formFile" class="form-label text-white">Imagen de descripcción N.5</label>
     <input class="form-control" type="file" name="img5S" id="formFile">
     @if(isset($servicio->Img5S))
     <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;">
