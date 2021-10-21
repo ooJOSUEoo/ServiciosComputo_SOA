@@ -4,7 +4,7 @@
         @foreach($errors->all() as $error)
         <li>{{$error}}</li>
         @endforeach
-        <li>* Se recargo la pagina asi que vuelve a poner las img necesarias y el tipo de servicio asi como el status</li>
+        <li>* Se recargo la pagina asi que vuelve a poner las img necesarias y el tipo de servicio asi como el status si se necesita</li>
     </ul>
 </div>
 @endif

@@ -82,7 +82,6 @@ class ServicioController extends Controller
             'Img3S.mimes'=>'La imagen N.3 de descripcion deve ser jpeg, jpg o png',
             'Img4S.mimes'=>'La imagen N.4 de descripcion deve ser jpeg, jpg o png',
             'Img5S.mimes'=>'La imagen N.5 de descripcion deve ser jpeg, jpg o png',
-            ''=>'',
         ];
 
         $this->validate($request, $campos, $mensaje);
@@ -149,6 +148,73 @@ class ServicioController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $campos=[
+            'NombreS'=>'required|string|max:50',
+            'DescripcionS'=>'required||string|max:500',
+            'UbicacionS'=>'required||string|max:100',
+            'AtiendeS'=>'required||string|max:50',
+            'TelS'=>'required||string|max:15', 
+        ];
+        $mensaje = [
+            'NombreS.required'=>'El nombre es requerido',
+            'DescripcionS.required'=>'La descripcion es requerida',
+            'UbicacionS.required'=>'La ubicacion es requerida',
+            'AtiendeS.required'=>'La persona que atiende es requerida',
+            'TelS.required'=>'El numero de telefono es requerido',
+        ];
+
+        if ($request->hasFile('Logo')){
+            $campos=['Logo'=>'required|max:10000|mimes:jpeg,png,jpg',];
+            $mensaje=[
+                'Logo.required'=>'La imagen principal es requerida',
+                'Logo.max:10000'=>'La imagen principal es muy pesada, deve ser menor a la 10mb',
+                'Logo.mimes'=>'La imagen principal deve ser jpeg, jpg o png',
+            ];
+        }
+        if ($request->hasFile('Img1S')){
+            $campos=['Img1S'=>'required|max:10000|mimes:jpeg,png,jpg',];
+            $mensaje=[
+                'Img1S.required'=>'La imagen N.1 de descripcion es requerida',
+                'Img1S.max:10000'=>'La imagen N.1 de descripcion es muy pesada, deve ser menor a la 10mb',
+                'Img1S.mimes'=>'La imagen N.1 de descripcion deve ser jpeg, jpg o png',
+            ];
+        }
+        if ($request->hasFile('Img2S')){
+            $campos=['Img2S'=>'required|max:10000|mimes:jpeg,png,jpg',];
+            $mensaje=[
+                'Img2S.required'=>'La imagen N.2 de descripcion es requerida',
+                'Img2S.max:10000'=>'La imagen N.2 de descripcion es muy pesada, deve ser menor a la 10mb',
+                'Img2S.mimes'=>'La imagen N.2 de descripcion deve ser jpeg, jpg o png',
+            ];
+        }
+        if ($request->hasFile('Img3S')){
+            $campos=['Img3S'=>'required|max:10000|mimes:jpeg,png,jpg',];
+            $mensaje=[
+                'Img3S.required'=>'La imagen N.3 de descripcion es requerida',
+                'Img3S.max:10000'=>'La imagen N.3 de descripcion es muy pesada, deve ser menor a la 10mb',
+                'Img3S.mimes'=>'La imagen N.3 de descripcion deve ser jpeg, jpg o png',
+            ];
+        }
+        if ($request->hasFile('Img4S')){
+            $campos=['Img4S'=>'required|max:10000|mimes:jpeg,png,jpg',];
+            $mensaje=[
+                'Img4S.required'=>'La imagen N.4 de descripcion es requerida',
+                'Img4S.max:10000'=>'La imagen N.4 de descripcion es muy pesada, deve ser menor a la 10mb',
+                'Img4S.mimes'=>'La imagen N.4 de descripcion deve ser jpeg, jpg o png',
+            ];
+        }
+        if ($request->hasFile('Img5S')){
+            $campos=['Img5S'=>'required|max:10000|mimes:jpeg,png,jpg',];
+            $mensaje=[
+                'Img5S.required'=>'La imagen N.5 de descripcion es requerida',
+                'Img5S.max:10000'=>'La imagen N.5 de descripcion es muy pesada, deve ser menor a la 10mb',
+                'Img5S.mimes'=>'La imagen N.5 de descripcion deve ser jpeg, jpg o png',
+            ];
+        }
+        
+        $this->validate($request, $campos, $mensaje);
+
         $datosServicio = request()->except(['_token','_method']);
 
         if ($request->hasFile('Logo')){
