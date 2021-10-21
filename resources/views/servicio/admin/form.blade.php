@@ -86,7 +86,7 @@
     </div>
 </div>
 
-<div class="p-2 mb-3">
+<div class="mb-3">
     <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
     <input class="form-control" type="file" name="img1S" id="formFile">
     @if(isset($servicio->Img1S))
@@ -94,7 +94,7 @@
     @endif
 </div>
 
-<div class="p-2 mb-3">
+<div class="mb-3">
     <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
     <input class="form-control" type="file" name="img2S" id="formFile">
     @if(isset($servicio->Img2S))
@@ -102,7 +102,7 @@
     @endif
 </div>
 
-<div class="p-2 mb-3">
+<div class="mb-3">
     <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
     <input class="form-control" type="file" name="img3S" id="formFile">
     @if(isset($servicio->Img3S))
@@ -110,7 +110,7 @@
     @endif
 </div>
 
-<div class="p-2 mb-3">
+<div class="mb-3">
     <label for="formFile" class="form-label text-white">Imagen de descripcción</label>
     <input class="form-control" type="file" name="img4S" id="formFile">
     @if(isset($servicio->Img4S))
