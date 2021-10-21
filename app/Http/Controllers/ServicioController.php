@@ -66,7 +66,8 @@ class ServicioController extends Controller
         }
 
         Servicio::insert($datosServicio);
-        return response()->json($datosServicio);
+        //return response()->json($datosServicio);
+        return redirect('servicio')->with('mensaje', 'Servicio agregado con éxito');
     }
 
     /**
@@ -152,9 +153,23 @@ class ServicioController extends Controller
     public function destroy($id)
     {
         //
-        Servicio::destroy($id);
-        
-        return redirect('servicio');
+        $servicio = Servicio::findOrFail($id);
+
+        if(Storage::delete('public/'.$servicio->Logo)){
+            if (Storage::delete('public/'.$servicio->Img1S)) {
+                 if (Storage::delete('public/'.$servicio->Img2S)) {
+                     if (Storage::delete('public/'.$servicio->Img3S)) {
+                         if (Storage::delete('public/'.$servicio->Img4S)) {
+                             if (Storage::delete('public/'.$servicio->Img5S)) {
+                                Servicio::destroy($id);
+                             }
+                         }
+                     }
+                 }
+            }
+        }
+
+        return redirect('servicio')->with('mensaje', 'Servicio eliminado con éxito');
     }
 
 }
