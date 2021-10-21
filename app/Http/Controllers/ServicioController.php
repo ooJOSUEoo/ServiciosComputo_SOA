@@ -49,7 +49,7 @@ class ServicioController extends Controller
             'DescripcionS'=>'required||string|max:500',
             'UbicacionS'=>'required||string|max:100',
             'AtiendeS'=>'required||string|max:50',
-            'TelS'=>'required||tel|max:15', 
+            'TelS'=>'required||string|max:15', 
             'Img1S'=>'required|max:10000|mimes:jpeg,png,jpg',
             'Img2S'=>'required|max:10000|mimes:jpeg,png,jpg',
             'Img3S'=>'required|max:10000|mimes:jpeg,png,jpg',
