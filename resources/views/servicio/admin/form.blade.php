@@ -140,6 +140,6 @@
 </select>
 
 <div class="d-grid gap-2 col-10 mx-auto">
-    <button class="btn btn-primary" type="submit">Enviar</button>
+    <button class="btn btn-primary" type="submit">{{$modo}} Servicio</button>
     <button class="btn btn-warning" type="button" onClick="history.go(-1);">Regresar</button>
 </div>

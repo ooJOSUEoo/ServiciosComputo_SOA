@@ -6,7 +6,7 @@
     <form method="post" action="{{url('/servicio/'.$servicio->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     {{method_field('PATCH')}}
-    @include('servicio.admin.form')
+    @include('servicio.admin.form', ['modo'=>'Editar'])
 
     </form>
 </div>

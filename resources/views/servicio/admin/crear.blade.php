@@ -6,7 +6,7 @@
     <form method="post" action="{{url('/servicio')}}" method="POST" enctype="multipart/form-data">
     @csrf
         
-    @include('servicio.admin.form')
+    @include('servicio.admin.form', ['modo'=>'Crear'])
 
     </form>
 </div>
