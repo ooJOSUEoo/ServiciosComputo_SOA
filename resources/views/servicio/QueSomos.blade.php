@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="container">
-        <p class="fs-2 text-center text-white">Que Somos...</p>
+        <p class="fs-2 text-center text-white">Somos...</p>
     </div>
     <div class="container border-2 border-warning mb-3" style="border: solid;">
         <p class="fs-4 text-justify text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
@@ -21,13 +21,13 @@
     </div>
     <div class="container d-flex flex-wrap justify-content-around mb-3">
         <div class="imgQsomos">
-            <img class="" src="{{url('img/imgQsomos1.jpg')}}" alt="">
+            <img class="" src="{{url('img/imgQsomos1.jpg')}}" alt="Que somos, imagen 1">
         </div>
         <div class="imgQsomos">
-            <img class="" src="{{url('img/imgQsomos2.jpg')}}" alt="">
+            <img class="" src="{{url('img/imgQsomos2.jpg')}}" alt="Que somos, imagen 2">
         </div>
         <div class="imgQsomos">
-            <img class="" src="{{url('img/imgQsomos3.jpg')}}" alt="">
+            <img class="" src="{{url('img/imgQsomos3.jpg')}}" alt="Que somos, imagen 3">
         </div>
     </div>
 </div>

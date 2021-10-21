@@ -103,11 +103,14 @@
                             <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @endif
-
+                        
+                        <!--Boton para registrar usuario-->
+                        @if(1==2)
                         @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
+                        @endif
                         @endif
                         @else
                         <li class="nav-item dropdown">

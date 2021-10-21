@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="container-lg bg-warning py-1"> 
-        @if(isset(Auth::user()->name))
+        @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
         <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
         @endif
         <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
@@ -49,10 +49,10 @@
                     <a href="">
                         <p class="fs-2 text-center">{{$servicio->NombreS}}</p>
                     </a>
-                    <a href=""><img src="{{asset('storage').'/'.$servicio->Logo}}" alt="{{$servicio->NombreS}}"
+                    <a href=""><img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
                             class="w-100" style="height: 200px;"></a>
                     <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
-                    @if(isset(Auth::user()->name))
+                    @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
                     <div class="container d-flex justify-content-around">
                         <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" class="btn btn-secondary">Editar</a>
                         <form action="{{url('/servicio/'.$servicio->id)}}" method="post">
