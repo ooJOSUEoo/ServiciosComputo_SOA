@@ -3,9 +3,14 @@
 @section('content')
 
 @if(Session::has('mensaje'))
-
-{{Session::get('mensaje')}}
-
+<div class="container-xxl position-fixed">
+    <div class="alert alert-success alert-dismissible" role="alert">
+        {{Session::get('mensaje')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
 @endif
 
 <div class="titulo w-100 d-flex justify-content-center align-items-center">

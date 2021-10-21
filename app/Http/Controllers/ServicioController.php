@@ -250,8 +250,8 @@ class ServicioController extends Controller
 
         Servicio::where('id','=',$id)->update($datosServicio);
         $servicio = Servicio::findOrFail($id);
-        return view('servicio.admin.editar', compact('servicio'));
-
+        //return view('servicio.admin.editar', compact('servicio'));
+        return redirect('servicio')->with('mensaje', 'Servicio editado exitosamente');
 
     }
 
