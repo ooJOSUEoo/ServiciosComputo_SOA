@@ -15,24 +15,27 @@ use App\Models\Servicio;
 |
 */
 
-Route::redirect('/', 'servicio/');
-Route::redirect('/home', 'servicio/');
+Route::redirect('/', 'servicio/');  //redireccion de / a servicio/
+Route::redirect('/home', 'servicio/');  //redireccion de /home a servicio/
 
 
-Route::get('/Qsomos', function () {
+Route::get('/Qsomos', function () {  //cuendo este /Qsomos va a mostrar la vista de servicio.QueSomos
     return view('servicio.QueSomos');
 });
 
-Route::get('/ayuda', function () {
+Route::get('/ayuda', function () {  //cuendo este /ayuda va a mostrar la vista de servicio.ayuda
     return view('servicio.ayuda');
 });
 
-Route::resource('servicio', ServicioController::class); 
+
+Route::resource('servicio', ServicioController::class)->middleware('auth');  //autentificacion para que solo el admin pueda hacer crud
+//Route::resource('servicio.admin', ServicioController::class)->middleware('auth'); 
+
 
 Auth::routes();
 
 Route::get('/home', [ServicioController::class, 'index'])->name('home');
 
-/*Route::middleware(['middleware', 'auth'], function(){
-    Route::get('/home',[ServicioController::class, 'index'])->name('home');
-});*/
+Route::group(['middleware', 'auth'], function(){
+    Route::get('/servicio',[ServicioController::class, 'index'])->name('home');
+});
