@@ -35,7 +35,7 @@
     <div class="col-md-6 p-2 form-floating mb-3">
         <input type="text" name="UbicacionS" class="form-control" id="floatingInput" placeholder="-"
             value="{{isset($servicio->UbicacionS)?$servicio->UbicacionS:old('UbicacionS')}}">
-        <label for="floatingInput">Ubicación</label>
+        <label for="floatingInput">Ubicación (Sacada de Google Maps, solo el url)</label>
 
     </div>
 
@@ -70,16 +70,16 @@
 
 <div class="row g-3">
     <div class="col-md-6 p-2 form-floating mb-3">
-        <input type="text" name="WhatsappS" class="form-control" id="floatingInput" placeholder="-"
+        <input type="number" name="WhatsappS" class="form-control" id="floatingInput" placeholder="-"
             value="{{isset($servicio->WhatsappS)?$servicio->WhatsappS:old('WhatsappS')}}">
-        <label for="floatingInput">Whatsapp</label>
+        <label for="floatingInput">Whatsapp (numero)</label>
     </div>
 
 
     <div class="col-md-6 p-2 form-floating mb-3">
         <input type="text" name="FacebookS" class="form-control" id="floatingInput" placeholder="-"
             value="{{isset($servicio->FacebookS)?$servicio->FacebookS:old('FacebookS')}}">
-        <label for="floatingInput">Facebook</label>
+        <label for="floatingInput">Facebook (link)</label>
     </div>
 </div>
 
@@ -87,13 +87,13 @@
     <div class="col-md-6 p-2 form-floating mb-3">
         <input type="text" name="TwiterS" class="form-control" id="floatingInput" placeholder="-"
             value="{{isset($servicio->TwiterS)?$servicio->TwiterS:old('TwiterS')}}">
-        <label for="floatingInput">Twiter</label>
+        <label for="floatingInput">Twiter (link)</label>
     </div>
 
     <div class="col-md-6 p-2 form-floating mb-3">
         <input type="text" name="InstagramS" class="form-control" id="floatingInput" placeholder="-"
             value="{{isset($servicio->InstagramS)?$servicio->InstagramS:old('InstagramS')}}">
-        <label for="floatingInput">Instagram</label>
+        <label for="floatingInput">Instagram (link)</label>
     </div>
 </div>
 

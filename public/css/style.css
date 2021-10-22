@@ -9,8 +9,9 @@
 .titulo{
     margin-top: -1.5rem; 
 }
-.titulo p{
-    font-size: 60px; 
+.titulo p,
+.tituloS{
+    font-size: 55px; 
     font-weight:600; 
     -webkit-text-stroke: 3px rgb(31, 41, 43);
 }
@@ -30,6 +31,22 @@
 }
 .post{
     width: 25%;
+}
+.galery img{
+    width: 30%;
+    height: 250px;
+}
+.bi-whatsapp{
+    color: #27c427;
+}
+.bi-facebook{
+    color: #3f76bd;
+}
+.bi-twitter{
+    color: #39c2cc;
+}
+.bi-instagram{
+    color: #c55a47;
 }
 
 .placeholder-white::placeholder {

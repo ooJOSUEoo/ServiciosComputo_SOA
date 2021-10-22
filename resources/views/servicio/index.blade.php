@@ -2,7 +2,7 @@
 
 @section('content')
 
-@if(Session::has('mensaje'))
+@if(Session::has('mensaje')&&isset(Auth::user()->name))
 <div class="container-xxl position-fixed">
     <div class="alert alert-success alert-dismissible" role="alert">
         {{Session::get('mensaje')}}
@@ -40,10 +40,10 @@
         <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
             @foreach($servicios as $servicio)
             @if($servicio->TipoS == '1')
-            <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-primary"
+            <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-primary px-1"
                 style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
                 @else
-                <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success"
+                <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success px-1"
                     style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
                     @endif
                     <a href="">
@@ -52,6 +52,14 @@
                     <a href=""><img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
                             class="w-100" style="height: 200px;"></a>
                     <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
+                    <form action="{{url('/servicio/'.$servicio->id)}}" method="get" class="d-flex justify-content-center py-2">
+                            @csrf
+                            @if($servicio->TipoS == '1')
+                            <button type="submit" class="btn btn-primary">Mas info</button>
+                            @else
+                            <button type="submit" class="btn btn-success">Mas info</button>
+                            @endif
+                        </form>
                     @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
                     <div class="container d-flex justify-content-around">
                         <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" class="btn btn-secondary">Editar</a>

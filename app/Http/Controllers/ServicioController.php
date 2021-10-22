@@ -18,7 +18,7 @@ class ServicioController extends Controller
     public function index()
     {
         //
-        $datos['servicios'] = Servicio::paginate(1);
+        $datos['servicios'] = Servicio::paginate(6);
         return view('servicio.index',$datos);
     }
 
@@ -47,7 +47,7 @@ class ServicioController extends Controller
             'NombreS'=>'required|string|max:50',
             'Logo'=>'required|max:10000|mimes:jpeg,png,jpg',
             'DescripcionS'=>'required||string|max:500',
-            'UbicacionS'=>'required||string|max:100',
+            'UbicacionS'=>'required||string|max:999999',
             'AtiendeS'=>'required||string|max:50',
             'TelS'=>'required||string|max:15', 
             'Img1S'=>'required|max:10000|mimes:jpeg,png,jpg',
@@ -120,9 +120,11 @@ class ServicioController extends Controller
      * @param  \App\Models\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function show(Servicio $servicio)
+    public function show($id)
     {
         //
+        $servicio = Servicio::findOrFail($id);
+        return view('servicio.verS', compact('servicio'));
     }
 
     /**
@@ -152,7 +154,7 @@ class ServicioController extends Controller
         $campos=[
             'NombreS'=>'required|string|max:50',
             'DescripcionS'=>'required||string|max:500',
-            'UbicacionS'=>'required||string|max:100',
+            'UbicacionS'=>'required||string|max:999999',
             'AtiendeS'=>'required||string|max:50',
             'TelS'=>'required||string|max:15', 
         ];
