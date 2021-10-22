@@ -68,5 +68,8 @@
             </div>
         </div>
     </div>
+    <div class="container py-3">
+        {!!$servicios->links()!!}
+    </div>
 </div>
 @endsection

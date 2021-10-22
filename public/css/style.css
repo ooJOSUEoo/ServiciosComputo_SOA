@@ -1,3 +1,4 @@
+
 .titulo{
     height: 50vh; 
     background-image: url('../img/imgP.jpg'); 
@@ -33,6 +34,17 @@
 
 .placeholder-white::placeholder {
     color: rgb(204, 204, 204) !important;
+}
+.page-link{
+    background: #181818 !important; 
+    color: #444444 !important;
+}
+.page-item.active span.page-link{
+    color: rgb(255, 217, 0) !important;
+}
+.page-item a.page-link{
+    color: #fff !important;
+
 }
 
 
