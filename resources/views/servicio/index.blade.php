@@ -33,7 +33,7 @@
             </div>
         </div>
     </div>
-    <div class="container-lg bg-warning py-1"> 
+    <div class="container-lg bg-warning py-1">
         @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
         <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
         @endif
@@ -46,20 +46,21 @@
                 <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success px-1"
                     style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
                     @endif
-                    <a href="">
-                        <p class="fs-2 text-center">{{$servicio->NombreS}}</p>
-                    </a>
-                    <a href=""><img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
-                            class="w-100" style="height: 200px;"></a>
+
+                    <p class="fs-2 text-center">{{$servicio->NombreS}}</p>
+
+                    <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
+                        class="w-100" style="height: 200px;">
                     <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
-                    <form action="{{url('/servicio/'.$servicio->id)}}" method="get" class="d-flex justify-content-center py-2">
-                            @csrf
-                            @if($servicio->TipoS == '1')
-                            <button type="submit" class="btn btn-primary">Mas info</button>
-                            @else
-                            <button type="submit" class="btn btn-success">Mas info</button>
-                            @endif
-                        </form>
+                    <form action="{{url('/servicio/'.$servicio->id)}}" method="get"
+                        class="d-flex justify-content-center py-2">
+                        @csrf
+                        @if($servicio->TipoS == '1')
+                        <button type="submit" class="btn btn-primary">Mas info</button>
+                        @else
+                        <button type="submit" class="btn btn-success">Mas info</button>
+                        @endif
+                    </form>
                     @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
                     <div class="container d-flex justify-content-around">
                         <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" class="btn btn-secondary">Editar</a>

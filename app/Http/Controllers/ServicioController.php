@@ -46,8 +46,9 @@ class ServicioController extends Controller
         $campos=[
             'NombreS'=>'required|string|max:50',
             'Logo'=>'required|max:10000|mimes:jpeg,png,jpg',
+            'Latitud'=>'required|string|max:100',
+            'Longitud'=>'required|string|max:100',
             'DescripcionS'=>'required||string|max:500',
-            'UbicacionS'=>'required||string|max:999999',
             'AtiendeS'=>'required||string|max:50',
             'TelS'=>'required||string|max:15', 
             'Img1S'=>'required|max:10000|mimes:jpeg,png,jpg',
@@ -59,8 +60,9 @@ class ServicioController extends Controller
         $mensaje = [
             'NombreS.required'=>'El nombre es requerido',
             'DescripcionS.required'=>'La descripcion es requerida',
-            'UbicacionS.required'=>'La ubicacion es requerida',
             'AtiendeS.required'=>'La persona que atiende es requerida',
+            'Latitud.required'=>'La latitud es requerida',
+            'Longitud.required'=>'La longitud es requerida',
             'TelS.required'=>'El numero de telefono es requerido',
             'Logo.required'=>'La imagen principal es requerida',
             'Img1S.required'=>'La imagen N.1 de descripcion es requerida',
@@ -93,20 +95,20 @@ class ServicioController extends Controller
         if ($request->hasFile('Logo')){
             $datosServicio['Logo'] = $request->file('Logo')->store('uploads', 'public');
         }
-        if ($request->hasFile('img1S')){
-                $datosServicio['img1S'] = $request->file('img1S')->store('uploads', 'public');
+        if ($request->hasFile('Img1S')){
+                $datosServicio['Img1S'] = $request->file('Img1S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img2S')){
-                $datosServicio['img2S'] = $request->file('img2S')->store('uploads', 'public');
+        if ($request->hasFile('Img2S')){
+                $datosServicio['Img2S'] = $request->file('Img2S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img3S')){
-                $datosServicio['img3S'] = $request->file('img3S')->store('uploads', 'public');
+        if ($request->hasFile('Img3S')){
+                $datosServicio['Img3S'] = $request->file('Img3S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img4S')) {
-                $datosServicio['img4S'] = $request->file('img4S')->store('uploads', 'public');
+        if ($request->hasFile('Img4S')) {
+                $datosServicio['Img4S'] = $request->file('Img4S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img5S')) {
-                $datosServicio['img5S'] = $request->file('img5S')->store('uploads', 'public');
+        if ($request->hasFile('Img5S')) {
+                $datosServicio['Img5S'] = $request->file('Img5S')->store('uploads', 'public');
         }
 
         Servicio::insert($datosServicio);
@@ -154,12 +156,15 @@ class ServicioController extends Controller
         $campos=[
             'NombreS'=>'required|string|max:50',
             'DescripcionS'=>'required||string|max:500',
-            'UbicacionS'=>'required||string|max:999999',
+            'Latitud'=>'required|string|max:100',
+            'Longitud'=>'required|string|max:100',
             'AtiendeS'=>'required||string|max:50',
             'TelS'=>'required||string|max:15', 
         ];
         $mensaje = [
             'NombreS.required'=>'El nombre es requerido',
+            'Latitud.required'=>'La latitud es requerida',
+            'Longitud.required'=>'La longitud es requerida',
             'DescripcionS.required'=>'La descripcion es requerida',
             'UbicacionS.required'=>'La ubicacion es requerida',
             'AtiendeS.required'=>'La persona que atiende es requerida',
@@ -224,30 +229,30 @@ class ServicioController extends Controller
             Storage::delete('public/'.$servicio->Logo);
             $datosServicio['Logo'] = $request->file('Logo')->store('uploads', 'public');
         }
-        if ($request->hasFile('img1S')){
+        if ($request->hasFile('Img1S')){
             $servicio = Servicio::findOrFail($id);
             Storage::delete('public/'.$servicio->Img1S);
-            $datosServicio['img1S'] = $request->file('img1S')->store('uploads', 'public');
+            $datosServicio['Img1S'] = $request->file('Img1S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img2S')){
+        if ($request->hasFile('Img2S')){
             $servicio = Servicio::findOrFail($id);
             Storage::delete('public/'.$servicio->Img2S);
-            $datosServicio['img2S'] = $request->file('img2S')->store('uploads', 'public');
+            $datosServicio['Img2S'] = $request->file('Img2S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img3S')){
+        if ($request->hasFile('Img3S')){
             $servicio = Servicio::findOrFail($id);
             Storage::delete('public/'.$servicio->Img3S);
-            $datosServicio['img3S'] = $request->file('img3S')->store('uploads', 'public');
+            $datosServicio['Img3S'] = $request->file('Img3S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img4S')) {
+        if ($request->hasFile('Img4S')) {
             $servicio = Servicio::findOrFail($id);
             Storage::delete('public/'.$servicio->Img4S);
-            $datosServicio['img4S'] = $request->file('img4S')->store('uploads', 'public');
+            $datosServicio['Img4S'] = $request->file('Img4S')->store('uploads', 'public');
         }
-        if ($request->hasFile('img5S')) {
+        if ($request->hasFile('Img5S')) {
             $servicio = Servicio::findOrFail($id);
             Storage::delete('public/'.$servicio->Img5S);
-            $datosServicio['img5S'] = $request->file('img5S')->store('uploads', 'public');
+            $datosServicio['Img5S'] = $request->file('Img5S')->store('uploads', 'public');
         }
 
         Servicio::where('id','=',$id)->update($datosServicio);

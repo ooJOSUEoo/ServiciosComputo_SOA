@@ -39,11 +39,9 @@
     </div>
 
     <div class="container mb-3">
-        <section class="mapa">
-            <iframe
-                src="{{$servicio->AtiendeS}}"
-                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </section>
+        <div class="container d-flex justify-content-center mb-3">
+            <div id="mapa" style="width: 100%; height: 250px;"></div>
+        </div>
     </div>
 
 
@@ -82,5 +80,45 @@
         @endif
     </div>
 </div>
+
+<script>
+    function iniciarMapa() {
+
+        var latitud, longitud;
+
+        latitud = {{$servicio->Latitud}};
+
+        longitud = {{$servicio->Longitud}};
+ 
+        coodenadas = {
+            lng: longitud,
+            lat: latitud,
+        }
+
+        generarMapa(coodenadas);
+    }
+
+    function generarMapa(coordenadas) {
+        var mapa = new google.maps.Map(document.getElementById('mapa'), {
+            zoom: 15,
+            center: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+
+        marcador = new google.maps.Marker({
+            map: mapa,
+            draggable: true,
+            position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+
+        marcador.addListener('dragend', function (event) {
+            document.getElementById('Latitud').value = this.getPosition().lat();
+            document.getElementById('Longitud').value = this.getPosition().lng();
+
+        });
+    }
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMapa"></script>
 
 @endsection

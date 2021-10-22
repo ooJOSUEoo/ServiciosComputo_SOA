@@ -4,7 +4,8 @@
         @foreach($errors->all() as $error)
         <li>{{$error}}</li>
         @endforeach
-        <li>* Se recargo la pagina asi que vuelve a poner las img necesarias y el tipo de servicio asi como el status si se necesita</li>
+        <li>* Se recargo la pagina asi que vuelve a poner las img necesarias y el tipo de servicio asi como el status si
+            se necesita</li>
     </ul>
 </div>
 @endif
@@ -33,18 +34,26 @@
 
 <div class="row g-3">
     <div class="col-md-6 p-2 form-floating mb-3">
-        <input type="text" name="UbicacionS" class="form-control" id="floatingInput" placeholder="-"
-            value="{{isset($servicio->UbicacionS)?$servicio->UbicacionS:old('UbicacionS')}}">
-        <label for="floatingInput">Ubicación (Sacada de Google Maps, solo el url)</label>
-
+        <input readonly  type="text" name="Latitud" class="form-control" id="Latitud" placeholder="-"
+            value="{{isset($servicio->Latitud)?$servicio->Latitud:old('Latitud')}}">
+        <label for="Latitud">Latitud</label>
     </div>
-
     <div class="col-md-6 p-2 form-floating mb-3">
-        <input type="text" name="AtiendeS" class="form-control" id="floatingInput" placeholder="-"
-            value="{{isset($servicio->AtiendeS)?$servicio->AtiendeS:old('AtiendeS')}}">
-        <label for="floatingInput">Atiende</label>
-
+        <input readonly  type="text" name="Longitud" class="form-control" id="Longitud" placeholder="-"
+            value="{{isset($servicio->Longitud)?$servicio->Longitud:old('Longitud')}}">
+        <label for="Longitud">Longitud</label>
     </div>
+</div>´
+<p class="text-white">Elige la latitud y longitud conforme al mapa</p>
+<div class="container d-flex justify-content-center mb-3">
+    <div id="mapa" style="width: 100%; height: 250px;"></div>
+</div>
+
+<div class="p-2 form-floating mb-3">
+    <input type="text" name="AtiendeS" class="form-control" id="floatingInput" placeholder="-"
+        value="{{isset($servicio->AtiendeS)?$servicio->AtiendeS:old('AtiendeS')}}">
+    <label for="floatingInput">Atiende</label>
+
 </div>
 
 <label for="tipo" class="text-white">Tipo</label>
@@ -154,3 +163,49 @@
     <button class="btn btn-primary" type="submit">{{$modo}} Servicio</button>
     <button class="btn btn-warning" type="button" onClick="history.go(-1);">Regresar</button>
 </div>
+
+<script>
+    function iniciarMapa() {
+
+        var latitud,longitud;
+
+        if(document.getElementById('Latitud').value == ''){
+            latitud = 19.38624308932614;
+        }else{
+            latitud = document.getElementById('Latitud').value;
+        }
+        if(document.getElementById('Longitud').value == ''){
+            longitud = -97.96578439831544;
+        }else{
+            longitud = document.getElementById('Longitud').value;
+        }
+        coodenadas = {
+            lng: longitud,
+            lat: latitud,
+        }
+
+        generarMapa(coodenadas);
+    }
+
+    function generarMapa(coordenadas) {
+        var mapa = new google.maps.Map(document.getElementById('mapa'), {
+            zoom: 15,
+            center: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+
+        marcador = new google.maps.Marker({
+            map: mapa,
+            draggable: true,
+            position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+
+        marcador.addListener('dragend', function (event) {
+            document.getElementById('Latitud').value = this.getPosition().lat();
+            document.getElementById('Longitud').value = this.getPosition().lng();
+
+        });
+    }
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMapa"></script>

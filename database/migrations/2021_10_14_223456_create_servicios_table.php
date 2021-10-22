@@ -18,7 +18,8 @@ class CreateServiciosTable extends Migration
             $table->string('NombreS');
             $table->string('Logo');
             $table->string('DescripcionS');
-            $table->string('UbicacionS');
+            $table->string('Latitud');
+            $table->string('Longitud');
             $table->string('AtiendeS');
             $table->string('TipoS');
             $table->string('TelS');
