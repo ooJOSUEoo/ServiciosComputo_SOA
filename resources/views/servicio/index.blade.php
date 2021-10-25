@@ -53,17 +53,19 @@
                         class="w-100" style="height: 200px;">
                     <p class="text-secondary" id="ubicacionCortaMapa">{{$servicio->Longitud}} {{$servicio->Latitud}}</p>
                     <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
+                    @if($servicio->StatusS == '1')
                     <form action="{{url('/servicio/'.$servicio->id)}}" method="get"
-                        class="d-flex justify-content-center py-2">
+                        class="py-2 d-grid gap-2">
                         @csrf
-                        @if($servicio->TipoS == '1' && $servicio->StatusS == '1')
+                        @if($servicio->TipoS == '1')
                         <button type="submit" class="btn btn-primary">Mas info</button>
-                        @elseif($servicio->TipoS == '2' && $servicio->StatusS == '1')
+                        @elseif($servicio->TipoS == '2')
                         <button type="submit" class="btn btn-success">Mas info</button>
-                        @else
-                        <p class="btn btn-danger"><i class="bi bi-lock"></i></p>
                         @endif
                     </form>
+                    @else
+                    <p class="btn btn-secondary d-flex justify-content-center py-2"><i class="bi bi-lock"></i></p>
+                    @endif
                     @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
                     <div class="container d-flex justify-content-around">
                         <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" class="btn btn-secondary">Editar</a>
