@@ -23,12 +23,12 @@ class BuscarController extends Controller
     }
 
     public function software(){
-        $datos['servicios'] = Servicio::where('TipoS','=','1')->paginate(6);
+        $datos['servicios'] = Servicio::where('TipoS','=','1')->where('StatusS','=','1')->paginate(6);
         return view('servicio.software',$datos);
     }
 
     public function hardware(){
-        $datos['servicios'] = Servicio::where('TipoS','=','2')->paginate(6);
+        $datos['servicios'] = Servicio::where('TipoS','=','2')->where('StatusS','=','1')->paginate(6);
         return view('servicio.hardware',$datos);
     }
 }

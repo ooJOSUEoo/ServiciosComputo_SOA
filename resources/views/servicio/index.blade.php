@@ -56,10 +56,12 @@
                     <form action="{{url('/servicio/'.$servicio->id)}}" method="get"
                         class="d-flex justify-content-center py-2">
                         @csrf
-                        @if($servicio->TipoS == '1')
+                        @if($servicio->TipoS == '1' && $servicio->StatusS == '1')
                         <button type="submit" class="btn btn-primary">Mas info</button>
-                        @else
+                        @elseif($servicio->TipoS == '2' && $servicio->StatusS == '1')
                         <button type="submit" class="btn btn-success">Mas info</button>
+                        @else
+                        <p class="btn btn-danger"><i class="bi bi-lock"></i></p>
                         @endif
                     </form>
                     @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
