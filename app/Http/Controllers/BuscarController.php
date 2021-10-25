@@ -21,4 +21,14 @@ class BuscarController extends Controller
 
         return $data;
     }
+
+    public function software(){
+        $datos['servicios'] = Servicio::where('TipoS','=','1')->paginate(6);
+        return view('servicio.software',$datos);
+    }
+
+    public function hardware(){
+        $datos['servicios'] = Servicio::where('TipoS','=','2')->paginate(6);
+        return view('servicio.hardware',$datos);
+    }
 }

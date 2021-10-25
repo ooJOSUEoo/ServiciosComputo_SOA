@@ -64,10 +64,10 @@
                             <a class="nav-link text-white" href="{{ url('/Qsomos') }}">Que somos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">Hardware</a>
+                        <a class="nav-link text-white" href="{{ url('/hardware') }}">Hardware</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">Software</a>
+                            <a class="nav-link text-white" href="{{ url('/software') }}">Software</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ url('/ayuda') }}">Ayuda</a>
@@ -170,7 +170,7 @@
                 success: function (data) {
                     console.log(data);
                     d = data;
-                    
+
                     datos = data[0];
 
                     if (datos != undefined) {
@@ -187,7 +187,7 @@
 
     $('#search').change(function () {
         if (enviar && $('#search').val() == datos.value) {
-            $('#formsearch').attr('action', "{{url('/servicio')}}"+"/"+datos.id);
+            $('#formsearch').attr('action', "{{url('/servicio')}}" + "/" + datos.id);
         }
         if ($('#search').val() != datos.value) {
             $('#formsearch').attr('action', "");

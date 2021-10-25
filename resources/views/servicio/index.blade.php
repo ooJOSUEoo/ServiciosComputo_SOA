@@ -25,11 +25,11 @@
         <div class="row ">
             <div class="col">
                 <a href="" class="btn btn-primary"> </a>
-                <a href="" class="fs-3 text-white">SOFTWARE</a>
+                <a href="{{ url('/software') }}" class="fs-3 text-white">SOFTWARE</a>
             </div>
             <div class="col">
                 <a href="" class="btn btn-success"> </a>
-                <a href="" class="fs-3 text-white">HARDWARE</a>
+                <a href="{{ url('/hardware') }}" class="fs-3 text-white">HARDWARE</a>
             </div>
         </div>
     </div>

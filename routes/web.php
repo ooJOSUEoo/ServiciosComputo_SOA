@@ -37,6 +37,8 @@ Route::get('buscar/servicio',[BuscarController::class,'servicios'])->name('busca
 
 Route::get('buscar/',[BuscarController::class,'servicios'])->name('buscar');
 
+Route::get('/software',[BuscarController::class,'software']);
+Route::get('/hardware',[BuscarController::class,'hardware']);
 
 Auth::routes();
 
