@@ -168,8 +168,11 @@
                     term: request.term
                 },
                 success: function (data) {
-                    console.log(data[0]);
+                    console.log(data);
+                    d = data;
+                    
                     datos = data[0];
+
                     if (datos != undefined) {
                         response(datos);
                         enviar = true;
@@ -183,11 +186,11 @@
     });
 
     $('#search').change(function () {
-        if (enviar && $('#search').val() == datos[0]) {
-            $('#formsearch').attr('action', "{{url('/servicio')}}"+"/"+datos[1]);
+        if (enviar && $('#search').val() == datos.value) {
+            $('#formsearch').attr('action', "{{url('/servicio')}}"+"/"+datos.id);
         }
-        if ($('#search').val() != datos[0]) {
-            $('#formsearch').attr('action', "{{url('/servicio')}}");
+        if ($('#search').val() != datos.value) {
+            $('#formsearch').attr('action', "");
         }
     });
 
