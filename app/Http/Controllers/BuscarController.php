@@ -17,7 +17,8 @@ class BuscarController extends Controller
 
         foreach ($querys as $query) {
             $data[] = [
-                $query->NombreS
+                $query->NombreS,
+                $query->id
             ];
         }
 

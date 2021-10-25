@@ -47,7 +47,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                        <form action="" class="form-inline mt-2 mt-md-0 position-relative" autocomplete="on">
+                        <form action="" id="formsearch" class="form-inline mt-2 mt-md-0 position-relative"
+                            autocomplete="on" method="GET">
+                            @csrf
                             <input class="form-control mr-sm-2 sec border-primary placeholder-white text-white"
                                 type="text" placeholder="Buscar" aria-label="Search" id="search" autocomplete="on">
                             <button class="btn text-primary my-2 my-sm-0" style="margin-left: -50px;" type="submit"><i
@@ -143,6 +145,7 @@
             </div>
         </nav>
     </div>
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -154,6 +157,7 @@
 
 
 <script>
+    enviar = false;
     mensaje = ['No hay servicios a lo que mensionas :('];
     $('#search').autocomplete({
         source: function (request, response) {
@@ -168,11 +172,22 @@
                     datos = data[0];
                     if (datos != undefined) {
                         response(datos);
+                        enviar = true;
                     } else {
                         response(mensaje);
+                        enviar = false;
                     }
                 }
             });
+        }
+    });
+
+    $('#search').change(function () {
+        if (enviar && $('#search').val() == datos[0]) {
+            $('#formsearch').attr('action', "{{url('/servicio')}}"+"/"+datos[1]);
+        }
+        if ($('#search').val() != datos[0]) {
+            $('#formsearch').attr('action', "{{url('/servicio')}}");
         }
     });
 

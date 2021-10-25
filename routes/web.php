@@ -35,6 +35,8 @@ Route::resource('servicio', ServicioController::class)->only(['show']);
 
 Route::get('buscar/servicio',[BuscarController::class,'servicios'])->name('buscar.servicio');
 
+Route::get('buscar/',[BuscarController::class,'servicios'])->name('buscar');
+
 
 Auth::routes();
 
