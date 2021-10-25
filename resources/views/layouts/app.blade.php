@@ -103,7 +103,7 @@
                             <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @endif
-                        
+
                         <!--Boton para registrar usuario-->
                         @if(1==2)
                         @if (Route::has('register'))
@@ -116,7 +116,8 @@
                         <li class="nav-item dropdown">
 
                             <div class="dropdown-menu dropdown-menu-top dropdown-menu-right"
-                                aria-labelledby="navbarDropdown" style="bottom: 100% !important; min-width: 7rem !important;">
+                                aria-labelledby="navbarDropdown"
+                                style="bottom: 100% !important; min-width: 7rem !important;">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -142,5 +143,10 @@
         </nav>
     </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMapa"></script>
 
 </html>

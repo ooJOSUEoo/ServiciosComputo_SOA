@@ -207,5 +207,3 @@
     }
 
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMapa"></script>

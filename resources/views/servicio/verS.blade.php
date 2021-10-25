@@ -106,7 +106,7 @@
 
         marcador = new google.maps.Marker({
             map: mapa,
-            draggable: true,
+            draggable: false,
             position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
         });
 
@@ -118,7 +118,4 @@
     }
 
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMapa"></script>
-
 @endsection

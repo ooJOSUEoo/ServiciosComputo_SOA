@@ -51,6 +51,7 @@
 
                     <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
                         class="w-100" style="height: 200px;">
+                    <p class="text-secondary" id="ubicacionCortaMapa">{{$servicio->Longitud}} {{$servicio->Latitud}}</p>
                     <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
                     <form action="{{url('/servicio/'.$servicio->id)}}" method="get"
                         class="d-flex justify-content-center py-2">
