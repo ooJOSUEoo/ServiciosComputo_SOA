@@ -47,9 +47,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                        <form class="form-inline mt-2 mt-md-0 position-relative">
+                        <form action="" class="form-inline mt-2 mt-md-0 position-relative" autocomplete="on">
                             <input class="form-control mr-sm-2 sec border-primary placeholder-white text-white"
-                                type="text" placeholder="Buscar" aria-label="Search">
+                                type="text" placeholder="Buscar" aria-label="Search" id="search" autocomplete="on">
                             <button class="btn text-primary my-2 my-sm-0" style="margin-left: -50px;" type="submit"><i
                                     class="bi bi-search"></i></button>
                         </form>
@@ -152,5 +152,30 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMapa"></script>
 
+
+<script>
+    mensaje = ['No hay servicios a lo que mensionas :('];
+    $('#search').autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "{{route('buscar.servicio')}}",
+                dataType: 'json',
+                data: {
+                    term: request.term
+                },
+                success: function (data) {
+                    console.log(data[0]);
+                    datos = data[0];
+                    if (datos != undefined) {
+                        response(datos);
+                    } else {
+                        response(mensaje);
+                    }
+                }
+            });
+        }
+    });
+
+</script>
 
 </html>

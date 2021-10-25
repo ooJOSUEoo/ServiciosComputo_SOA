@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\BuscarController;
 use App\Models\Servicio;
 
 /*
@@ -31,6 +32,8 @@ Route::get('/ayuda', function () {  //cuendo este /ayuda va a mostrar la vista d
 Route::resource('servicio', ServicioController::class)->middleware('auth')->except('show');  //autentificacion para que solo el admin pueda hacer crud
 Route::resource('servicio', ServicioController::class)->only(['show']); 
 //Route::resource('servicio.admin', ServicioController::class)->middleware('auth'); 
+
+Route::get('buscar/servicio',[BuscarController::class,'servicios'])->name('buscar.servicio');
 
 
 Auth::routes();
