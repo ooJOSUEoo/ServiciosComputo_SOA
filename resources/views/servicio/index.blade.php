@@ -68,7 +68,7 @@
                     @endif
                     @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
                     <div class="container d-flex justify-content-around">
-                        <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" class="btn btn-secondary">Editar</a>
+                        <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" style="height:38px;" class="btn btn-secondary">Editar</a>
                         <form action="{{url('/servicio/'.$servicio->id)}}" method="post">
                             @csrf
                             {{method_field('DELETE')}}

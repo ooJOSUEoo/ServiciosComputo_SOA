@@ -48,9 +48,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                        <form action="" id="formsearch" class="form-inline mt-2 mt-md-0 position-relative"
+                        <form action="" id="formsearch" class="form-inline mt-2 mt-md-0 position-relative mb-0"
                             autocomplete="on" method="GET">
                             @csrf
+                            {{method_field('GET')}}
                             <input class="form-control mr-sm-2 sec border-primary placeholder-white text-white"
                                 type="text" placeholder="Buscar" aria-label="Search" id="search" autocomplete="on">
                             <button class="btn text-primary my-2 my-sm-0" style="margin-left: -50px;" type="submit"><i
@@ -191,8 +192,12 @@
         if (enviar && $('#search').val() == datos.value) {
             $('#formsearch').attr('action', "{{url('/servicio')}}" + "/" + datos.id);
         }
-        if ($('#search').val() != datos.value) {
+        if (enviar==false || $('#search').val() != datos.value) {
             $('#formsearch').attr('action', "");
+            document.getElementById('formsearch').addEventListener('submit', function (e) {
+                Location.href = "{{url('/servicio')}}";
+                alert('Lo que buscas no existe')
+            });
         }
     });
 
