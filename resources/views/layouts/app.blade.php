@@ -32,7 +32,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm pri fixed-top">
-            <div class="container">
+            <div class="container-xxl">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     Servicios Computo
                 </a>
@@ -73,6 +73,45 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ url('/ayuda') }}">Ayuda</a>
                         </li>
+
+                        _
+                        <!-- Authentication Links -->
+                        @guest
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
+
+                        <!--Boton para registrar usuario-->
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
+                        @else
+                        <li class="nav-item dropdown">
+
+                            <div class="dropdown-menu dropdown-menu-right"
+                                aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                        </li>
+                        @endguest
+
                     </ul>
                 </div>
             </div>
@@ -99,47 +138,6 @@
                     </ul>
 
                     <ul class="navbar-nav ml-auto text-white">
-
-                        <!-- Authentication Links -->
-                        @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
-
-                        <!--Boton para registrar usuario-->
-                        @if(1==2)
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-
-                            <div class="dropdown-menu dropdown-menu-top dropdown-menu-right"
-                                aria-labelledby="navbarDropdown"
-                                style="bottom: 100% !important; min-width: 7rem !important;">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                        </li>
-                        @endguest
-
                     </ul>
 
                 </div>
@@ -149,7 +147,7 @@
 
 </body>
 
-<script src="{{ asset('js/jquery-3.6.0.min') }}"></script>
+<script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
 
 <script src="{{ asset('jquery-ui-1.13.0.custom/jquery-ui.min.js') }}"></script>
 
