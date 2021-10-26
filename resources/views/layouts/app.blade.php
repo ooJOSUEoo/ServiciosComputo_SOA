@@ -186,6 +186,7 @@
     });
 
     $('#search').change(function () {
+        $('#search').val().trim();
         if (enviar && $('#search').val() == datos.value) {
             $('#formsearch').attr('action', "{{url('/servicio')}}" + "/" + datos.id);
         }

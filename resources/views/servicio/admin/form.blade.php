@@ -27,7 +27,7 @@
 
 <div class="form-floating mb-3">
     <textarea class="form-control" name="DescripcionS" placeholder="Leave a comment here" id="floatingTextarea2"
-        style="height: 100px">{{isset($servicio->DescripcionS)?$servicio->DescripcionS:old('DescripcionS')}}</textarea>
+        style="height: 100px; resize: none;">{{isset($servicio->DescripcionS)?$servicio->DescripcionS:old('DescripcionS')}}</textarea>
     <label for="floatingTextarea2">Descripción</label>
 
 </div>
@@ -72,7 +72,8 @@
 
 <div class="form-floating mb-3">
     <input type="number" name="TelS" class="form-control" id="floatingInput" placeholder="-"
-        value="{{isset($servicio->TelS)?$servicio->TelS:old('TelS')}}">
+        value="{{isset($servicio->TelS)?$servicio->TelS:old('TelS')}}"
+        maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
     <label for="floatingInput">Tel</label>
 
 </div>
@@ -80,7 +81,8 @@
 <div class="row g-3">
     <div class="col-md-6 p-2 form-floating mb-3">
         <input type="number" name="WhatsappS" class="form-control" id="floatingInput" placeholder="-"
-            value="{{isset($servicio->WhatsappS)?$servicio->WhatsappS:old('WhatsappS')}}">
+            value="{{isset($servicio->WhatsappS)?$servicio->WhatsappS:old('WhatsappS')}}"
+            maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
         <label for="floatingInput">Whatsapp (numero)</label>
     </div>
 
