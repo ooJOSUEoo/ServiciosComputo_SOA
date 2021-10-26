@@ -87,3 +87,17 @@
     </div>
 </div>
 @endsection
+
+<script>
+    const key = "AIzaSyBmjwjgeaij55I3tAgcYuEVp13AXD9QqAk";
+    const lat = {{$servicio->Latitud}};
+    const lng = {{$servicio->Longitud}};
+    let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        //document.getElementById('ubicacionCortaMapa').innerHTML = data.results[0].formatted_address;
+    })
+    .catch(err => console.log(err));
+</script>
