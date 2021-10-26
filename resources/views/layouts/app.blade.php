@@ -26,6 +26,7 @@
 
     <!--Icons-->
     <link href="{{ asset('css/icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icons/bootstrap-icons.css') }}" rel="stylesheet">
 
 </head>
 
