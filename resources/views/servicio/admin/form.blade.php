@@ -73,17 +73,21 @@
 <div class="form-floating mb-3">
     <input type="number" name="TelS" class="form-control" id="floatingInput" placeholder="-"
         value="{{isset($servicio->TelS)?$servicio->TelS:old('TelS')}}"
-        maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+        maxlength="15" minlength="7" autocomplete="off" min="1"
+        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
     <label for="floatingInput">Tel</label>
 
 </div>
 
 <div class="row g-3">
     <div class="col-md-6 p-2 form-floating mb-3">
-        <input type="number" name="WhatsappS" class="form-control" id="floatingInput" placeholder="-"
+        <input type="text" name="WhatsappS" class="form-control" id="whatsapp" placeholder="-"
             value="{{isset($servicio->WhatsappS)?$servicio->WhatsappS:old('WhatsappS')}}"
-            maxlength="15" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-        <label for="floatingInput">Whatsapp (numero)</label>
+            maxlength="10" minlength="7" autocomplete="off" min="1"
+            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+        <label for="whatsapp">Whatsapp (numero)</label>
     </div>
 
 

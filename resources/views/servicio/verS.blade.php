@@ -59,7 +59,7 @@
         @if($servicio->WhatsappS != '')
         <div class="btn btn-dark">
             <i class="bi bi-whatsapp"></i>
-            <a href="{{$servicio->WhatsappS}}" class="text-white" style="text-decoration: none;">Whatsapp</a>
+            <a href="https://wa.me/{{$servicio->WhatsappS}}" class="text-white" style="text-decoration: none;">Whatsapp</a>
         </div>
         @endif
         @if($servicio->FacebookS != '')
