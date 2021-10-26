@@ -89,7 +89,7 @@
 @endsection
 
 <script>
-    const key = "AIzaSyBmjwjgeaij55I3tAgcYuEVp13AXD9QqAk";
+    const key = "G1Tnt7t6nrMf6f56br6EEbTUbdXbAD55D5d";
     const lat = {{$servicio->Latitud}};
     const lng = {{$servicio->Longitud}};
     let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`;
