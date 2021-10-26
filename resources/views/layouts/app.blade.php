@@ -158,7 +158,7 @@
 
 <script>
     enviar = false;
-    mensaje = ['No hay servicios a lo que mensionas :('];
+    mensaje = ['No hay servicios a lo que mencionas :(','o esta deshabilitado en este momento'];
     $('#search').autocomplete({
         source: function (request, response) {
             $.ajax({

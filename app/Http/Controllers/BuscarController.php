@@ -11,7 +11,7 @@ class BuscarController extends Controller
         $term = $request->get('term');
 
 
-        $querys = Servicio::where('NombreS','LIKE','%'.$term.'%')->take(5)->get();
+        $querys = Servicio::where('NombreS','LIKE','%'.$term.'%')->where('StatusS','=','1')->take(5)->get();
 
         $data = [];
         

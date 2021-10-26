@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if($servicio->StatusS=='1')
 <style>
     .logoimg {
         background-image: url("{{asset('storage').'/'.$servicio->Logo}}");
@@ -27,7 +28,7 @@
     </div>
 
     <div
-        class="text-white container bg-secondary d-flex justify-content-around align-items-center pt-1 text-justify mb-3 py-4 pt-3">
+        class="text-white text-center container bg-secondary d-flex justify-content-around align-items-center flex-wrap pt-1 text-justify mb-3 py-4 pt-3">
         <div>Atendido por: <span><b>{{$servicio->AtiendeS}}</b></span></div>
         <div>Servicio para necesidades en: <span><b>
                     @if($servicio->TipoS==1)
@@ -36,6 +37,7 @@
                     HARDWARE
                     @endif
                 </b></span></div>
+        <div class=""><i class="bi bi-phone"></i><span>{{$servicio->TelS}}</span></div>
     </div>
 
     <div class="container mb-3">
@@ -118,4 +120,13 @@
     }
 
 </script>
+@else
+<div class="container">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">El servicio no esta disponible</h4>
+        <p>El servicio no esta disponible por el momento, intenta mas tarde.</p>
+        <hr>
+        <p class="mb-0">Si el problema persiste, comunicate con nosotros.</p>
+    </div>
+@endif
 @endsection
