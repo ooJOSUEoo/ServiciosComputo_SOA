@@ -14,26 +14,31 @@ class CreateServiciosTable extends Migration
     public function up()
     {
         Schema::create('servicios', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
-            $table->string('NombreS');
+            $table->string('NombreS', 100);
             $table->string('Logo');
-            $table->string('DescripcionS');
+            $table->text('DescripcionS');
             $table->string('Latitud');
             $table->string('Longitud');
             $table->string('AtiendeS');
             $table->string('TipoS');
             $table->string('TelS');
-            $table->string('WhatsappS');
-            $table->string('FacebookS');
-            $table->string('TwiterS');
-            $table->string('InstagramS');
+            $table->string('WhatsappS')->nullable();
+            $table->string('FacebookS')->nullable();
+            $table->string('TwiterS')->nullable();
+            $table->string('InstagramS')->nullable();
+            $table->string('EmailS')->nullable();
             $table->string('Img1S');
             $table->string('Img2S');
             $table->string('Img3S');
             $table->string('Img4S');
             $table->string('Img5S');
+            $table->bigInteger('IdUsuario')->unsigned();
             $table->string('StatusS');
             $table->timestamps();
+
+            $table->foreign('IdUsuario')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

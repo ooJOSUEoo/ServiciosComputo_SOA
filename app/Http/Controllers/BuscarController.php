@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Servicio;
+use App\Models\User;
 
 class BuscarController extends Controller
 {
@@ -30,5 +31,10 @@ class BuscarController extends Controller
     public function hardware(){
         $datos['servicios'] = Servicio::where('TipoS','=','2')->where('StatusS','=','1')->paginate(6);
         return view('servicio.hardware',$datos);
+    }
+
+    public function MisServicios(){
+        $datos['servicios'] = Servicio::where('idUsuario','=',auth()->user()->id)->paginate(6);
+        return view('servicio.misServicios',$datos);
     }
 }

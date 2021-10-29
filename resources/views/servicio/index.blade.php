@@ -34,8 +34,9 @@
         </div>
     </div>
     <div class="container-lg bg-warning py-1">
-        @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
+        @if(isset(Auth::user()->id))
         <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
+        <a href="{{url('misServicios')}}" class="btn btn-primary mt-2">Mis Servicios</a>
         @endif
         <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
             @foreach($servicios as $servicio)
@@ -52,6 +53,9 @@
                     <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
                         class="w-100" style="height: 200px;">
                     <p class="text-secondary" id="ubicacionCortaMapa">{{$servicio->Longitud}} {{$servicio->Latitud}}</p>
+                    <!--<div>
+                        <a href="{{$servicio->Longitud}} {{$servicio->Latitud}}">Municipo</a>
+                    </div>-->
                     <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
                     @if($servicio->StatusS == '1')
                     <form action="{{url('/servicio/'.$servicio->id)}}" method="get"
@@ -66,7 +70,7 @@
                     @else
                     <p class="btn btn-secondary d-flex justify-content-center py-2"><i class="bi bi-lock"></i></p>
                     @endif
-                    @if(isset(Auth::user()->name)&&Auth::user()->email=='sjosue5082002@gmail.com')
+                    @if(isset(Auth::user()->id)&&Auth::user()->id==$servicio->IdUsuario)
                     <div class="container d-flex justify-content-around">
                         <a href="{{url('/servicio/'.$servicio->id.'/edit')}}" style="height:38px;" class="btn btn-secondary">Editar</a>
                         <form action="{{url('/servicio/'.$servicio->id)}}" method="post">
@@ -90,8 +94,8 @@
 
 <script>
     const key = "G1Tnt7t6nrMf6f56br6EEbTUbdXbAD55D5d";
-    const lat = {{$servicio->Latitud}};
-    const lng = {{$servicio->Longitud}};
+    const lat = null;
+    const lng = null:
     let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`;
     fetch(url)
     .then(res => res.json())

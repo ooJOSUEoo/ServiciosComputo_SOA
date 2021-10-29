@@ -151,7 +151,7 @@
     <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="{{$servicio->NombreS}}" style="height: 25%; width: 25%;">
     @endif
 </div>
-
+<input type="hidden" name="IdUsuario" value="{{Auth::user()->id}}">
 <label for="tipo" class="text-white">Status</label>
 <select class="form-select mb-3" name="StatusS" aria-label="Default select example" id="tipo">
     @if(isset($servicio->StatusS))
