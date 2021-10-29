@@ -49,7 +49,7 @@
     <div id="mapa" style="width: 100%; height: 250px;"></div>
 </div>
 
-<div class="p-2 form-floating mb-3">
+<div class="form-floating mb-3">
     <input type="text" name="AtiendeS" class="form-control" id="floatingInput" placeholder="-"
         value="{{isset($servicio->AtiendeS)?$servicio->AtiendeS:old('AtiendeS')}}">
     <label for="floatingInput">Atiende</label>
@@ -110,6 +110,13 @@
             value="{{isset($servicio->InstagramS)?$servicio->InstagramS:old('InstagramS')}}">
         <label for="floatingInput">Instagram (link)</label>
     </div>
+</div>
+
+<div class="form-floating mb-3">
+    <input type="email" name="EmailS" class="form-control" id="floatingInput" placeholder="-"
+        value="{{isset($servicio->EmailS)?$servicio->EmailS:old('EmailS')}}">
+    <label for="floatingInput">Email</label>
+
 </div>
 
 <div class="mb-3">

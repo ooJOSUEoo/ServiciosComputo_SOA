@@ -48,7 +48,7 @@ class ServicioController extends Controller
             'Logo'=>'required|max:10000|mimes:jpeg,png,jpg',
             'Latitud'=>'required|string|max:100',
             'Longitud'=>'required|string|max:100',
-            'DescripcionS'=>'required||string|max:500',
+            'DescripcionS'=>'required||string|max:5000',
             'AtiendeS'=>'required||string|max:50',
             'TelS'=>'required||string|max:15', 
             'Img1S'=>'required|max:10000|mimes:jpeg,png,jpg',
@@ -157,7 +157,7 @@ class ServicioController extends Controller
 
         $campos=[
             'NombreS'=>'required|string|max:50',
-            'DescripcionS'=>'required||string|max:500',
+            'DescripcionS'=>'required||string|max:5000',
             'Latitud'=>'required|string|max:100',
             'Longitud'=>'required|string|max:100',
             'AtiendeS'=>'required||string|max:50',

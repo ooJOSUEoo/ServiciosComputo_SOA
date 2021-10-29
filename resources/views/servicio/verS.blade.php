@@ -37,7 +37,7 @@
                     HARDWARE
                     @endif
                 </b></span></div>
-        <div class=""><i class="bi bi-phone"></i><span>{{$servicio->TelS}}</span></div>
+        <div class=""><i class="bi bi-telephone"></i><span>{{$servicio->TelS}}</span></div>
     </div>
 
     <div class="container mb-3">
@@ -78,6 +78,12 @@
         <div class="btn btn-dark">
             <i class="bi bi-instagram"></i>
             <a href="{{$servicio->InstagramS}}" class="text-white" style="text-decoration: none;">Instagram</a>
+        </div>
+        @endif
+        @if($servicio->InstagramS != '')
+        <div class="btn btn-dark">
+            <i class="bi bi-briefcase-fill"></i>
+            <a href="mailto:{{$servicio->EmailS}}" class="text-white" style="text-decoration: none;">{{$servicio->EmailS}}</a>
         </div>
         @endif
     </div>

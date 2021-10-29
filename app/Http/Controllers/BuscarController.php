@@ -33,8 +33,8 @@ class BuscarController extends Controller
         return view('servicio.hardware',$datos);
     }
 
-    public function MisServicios(){
+    public function misServicios(){
         $datos['servicios'] = Servicio::where('idUsuario','=',auth()->user()->id)->paginate(6);
-        return view('servicio.misServicios',$datos);
+        return view('servicio.admin.misServicios',$datos);
     }
 }

@@ -36,7 +36,7 @@
     <div class="container-lg bg-warning py-1">
         @if(isset(Auth::user()->id))
         <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
-        <a href="{{url('misServicios')}}" class="btn btn-primary mt-2">Mis Servicios</a>
+        <a href="{{url('/misServicios')}}" class="btn btn-primary mt-2">Mis Servicios</a>
         @endif
         <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
             @foreach($servicios as $servicio)
