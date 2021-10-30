@@ -23,20 +23,20 @@
     </div>
     <div class="container mb-4 text-center">
         <div class="row ">
-            <div class="col">
+            <div class="col border-warning border">
                 <a href="" class="btn btn-primary"> </a>
-                <a href="{{ url('/software') }}" class="fs-3 text-white">SOFTWARE</a>
+                <a href="{{ url('/software') }}" class="nav-link fs-3 text-white">SOFTWARE</a>
             </div>
-            <div class="col">
+            <div class="col border-warning border">
                 <a href="" class="btn btn-success"> </a>
-                <a href="{{ url('/hardware') }}" class="fs-3 text-white">HARDWARE</a>
+                <a href="{{ url('/hardware') }}" class="nav-link fs-3 text-white">HARDWARE</a>
             </div>
         </div>
     </div>
-    <div class="container-lg bg-warning py-1">
+    <div class="container-lg bg-warning py-2">
         @if(isset(Auth::user()->id))
-        <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2">Crear Servicio</a>
-        <a href="{{url('/misServicios')}}" class="btn btn-primary mt-2">Mis Servicios</a>
+        <a href="{{url('servicio/create')}}" class="btn btn-primary mt-2"><i class="bi bi-plus"></i>Crear Servicio</a>
+        <a href="{{url('/misServicios')}}" class="btn btn-success mt-2"><i class="bi bi-person"></i>Mis Servicios</a>
         @endif
         <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
             @foreach($servicios as $servicio)
@@ -95,7 +95,7 @@
 <script>
     const key = "G1Tnt7t6nrMf6f56br6EEbTUbdXbAD55D5d";
     const lat = null;
-    const lng = null:
+    const lng = null;
     let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${key}`;
     fetch(url)
     .then(res => res.json())

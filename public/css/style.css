@@ -9,11 +9,17 @@
 .titulo{
     margin-top: -1.5rem; 
 }
+
 .titulo p,
 .tituloS{
     font-size: 55px; 
     font-weight:600; 
     -webkit-text-stroke: 3px rgb(31, 41, 43);
+    text-shadow: 4px 2px rgb(255, 0, 0);
+}
+.titulo p::selection {
+    background: #000;
+    color: #fff;
 }
 .pri{
     background: #181818 !important; 
@@ -49,6 +55,10 @@
     color: #c55a47;
 }
 
+.container{
+    border-radius: 4px 4px 4px 4px;
+}
+
 .placeholder-white::placeholder {
     color: rgb(204, 204, 204) !important;
 }
@@ -73,6 +83,13 @@
 @media screen and (max-width: 1199px) {
     .post{
         width: 45%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .footerResponsivo{
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
