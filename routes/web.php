@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\BuscarController;
+use App\Http\Controllers\UserController;
 use App\Models\Servicio;
 
 /*
@@ -40,6 +41,7 @@ Route::get('buscar/',[BuscarController::class,'servicios'])->name('buscar');
 Route::get('/software',[BuscarController::class,'software']);
 Route::get('/hardware',[BuscarController::class,'hardware']);
 Route::get('/misServicios',[BuscarController::class,'misServicios']);
+Route::get('perfil/',[UserController::class,'perfil']);
 
 Auth::routes();
 
