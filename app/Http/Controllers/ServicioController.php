@@ -291,5 +291,4 @@ class ServicioController extends Controller
 
         return redirect('servicio')->with('mensaje', 'Servicio eliminado con éxito');
     }
-
 }

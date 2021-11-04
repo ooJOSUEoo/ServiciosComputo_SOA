@@ -3,7 +3,7 @@
 @section('content')
 
 @if(Session::has('mensaje')&&isset(Auth::user()->name))
-<div class="container-xxl position-fixed">
+<div class="container-xxl position-fixed mensaje">
     <div class="alert alert-success alert-dismissible" role="alert">
         {{Session::get('mensaje')}}
         <button type="button" class="close" data-dismiss="alert" aria-label="close">
@@ -11,6 +11,11 @@
         </button>
     </div>
 </div>
+<script>
+    setTimeout(function() {
+        $(".mensaje").fadeOut(1500);
+    },10000);
+</script>
 @endif
 
 <div class="titulo w-100 d-flex justify-content-center align-items-center">
