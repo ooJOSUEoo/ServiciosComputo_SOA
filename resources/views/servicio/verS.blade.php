@@ -47,12 +47,12 @@
     </div>
 
 
-    <div class="galery container d-flex justify-content-around align-items-center bg-warning flex-wrap py-4 mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img1S}}" alt="Imagen 1 de descripcion" class="mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img2S}}" alt="Imagen 2 de descripcion" class="mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img3S}}" alt="Imagen 3 de descripcion" class="mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img4S}}" alt="Imagen 4 de descripcion" class="mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="Imagen 5 de descripcion" class="mb-3">
+    <div class="galery container d-flex justify-content-around align-items-center bg-warning flex-wrap table-responsive py-4 mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img1S}}" alt="Imagen 1 de descripcion" class="post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img2S}}" alt="Imagen 2 de descripcion" class="post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img3S}}" alt="Imagen 3 de descripcion" class="post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img4S}}" alt="Imagen 4 de descripcion" class="post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="Imagen 5 de descripcion" class="post mb-3">
     </div>
 
     <div class="container d-flex justify-content-around align-items-center bg-secondary flex-wrap py-4 mb-3">
