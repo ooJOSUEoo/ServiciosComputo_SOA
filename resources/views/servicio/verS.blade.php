@@ -57,31 +57,31 @@
 
     <div class="container d-flex justify-content-around align-items-center bg-secondary flex-wrap py-4 mb-3">
         @if($servicio->WhatsappS != '')
-        <div class="btn btn-dark">
+        <div class="btn btn-dark mb-2">
             <i class="bi bi-whatsapp"></i>
             <a href="https://wa.me/{{$servicio->WhatsappS}}" class="text-white" style="text-decoration: none;">Whatsapp</a>
         </div>
         @endif
         @if($servicio->FacebookS != '')
-        <div class="btn btn-dark">
+        <div class="btn btn-dark mb-2">
             <i class="bi bi-facebook"></i>
             <a href="{{$servicio->FacebookS}}" class="text-white" style="text-decoration: none;">Facebook</a>
         </div>
         @endif
         @if($servicio->TwiterS != '')
-        <div class="btn btn-dark">
+        <div class="btn btn-dark mb-2">
             <i class="bi bi-twitter"></i>
             <a href="{{$servicio->TwiterS}}" class="text-white" style="text-decoration: none;">Twitter</a>
         </div>
         @endif
         @if($servicio->InstagramS != '')
-        <div class="btn btn-dark">
+        <div class="btn btn-dark mb-2">
             <i class="bi bi-instagram"></i>
             <a href="{{$servicio->InstagramS}}" class="text-white" style="text-decoration: none;">Instagram</a>
         </div>
         @endif
         @if($servicio->InstagramS != '')
-        <div class="btn btn-dark">
+        <div class="btn btn-dark mb-2">
             <i class="bi bi-briefcase-fill"></i>
             <a href="mailto:{{$servicio->EmailS}}" class="text-white" style="text-decoration: none;">{{$servicio->EmailS}}</a>
         </div>

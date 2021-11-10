@@ -29,11 +29,11 @@
     <div class="container mb-4 text-center">
         <div class="row ">
             <div class="col border-warning border">
-                <a href="" class="btn btn-primary"> </a>
+                <a href="" class="btn btn-primary mt-2"> </a>
                 <a href="{{ url('/software') }}" class="nav-link fs-3 text-white">SOFTWARE</a>
             </div>
             <div class="col border-warning border">
-                <a href="" class="btn btn-success"> </a>
+                <a href="" class="btn btn-success mt-2"> </a>
                 <a href="{{ url('/hardware') }}" class="nav-link fs-3 text-white">HARDWARE</a>
             </div>
         </div>
