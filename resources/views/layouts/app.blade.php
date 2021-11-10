@@ -174,11 +174,34 @@
                     console.log(data);
                     d = data;
 
-                    datos = data[0];
+                    var dato1 = '', dato2 = '', dato3 = '', dato4 = '', dato5 = '';
+                    var datos = [];
+                    if (d[0] != undefined) {
+                        dato1 = d[0];
+                        datos[0] = dato1;
+                    }
+                    if (d[1] != undefined) {
+                        dato2 = d[1];
+                        datos[1] = dato2;
+                    }
+                    if (d[2] != undefined) {
+                        dato3 = d[2];
+                        datos[2] = dato3;
+                    }
+                    if (d[3] != undefined) {
+                        dato4 = d[3];
+                        datos[3] = dato4;
+                    }
+                    if (d[4] != undefined) {
+                        dato5 = d[4];
+                        datos[4] = dato5;
+                    }
 
-                    if (datos != undefined) {
+                    if (d[0] != undefined) {
                         response(datos);
                         enviar = true;
+                        console.log(datos[0].id);
+                        
                     } else {
                         response(mensaje);
                         enviar = false;
@@ -190,10 +213,12 @@
 
     $('#search').change(function () {
         $('#search').val().trim();
-        if (enviar && $('#search').val() == datos.value) {
-            $('#formsearch').attr('action', "{{url('/servicio')}}" + "/" + datos.id);
+        for (let i = 0; i < 5; i++) {
+            if (enviar && $('#search').val() == d[i].value) {
+                $('#formsearch').attr('action', "{{url('/servicio')}}" + "/" + d[i].id);
+            }
         }
-        if (enviar==false || $('#search').val() != datos.value) {
+        if (enviar==false || $('#search').val() != d[0].value) {
             $('#formsearch').attr('action', "");
             document.getElementById('formsearch').addEventListener('submit', function (e) {
                 Location.href = "{{url('/servicio')}}";
