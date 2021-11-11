@@ -1,90 +1,127 @@
-:root{
+:root {
     --gray: #181818;
     --gray-light: #444444;
 }
 
-.titulo{
-    height: 50vh; 
-    background-image: url('../img/imgP.jpg'); 
-    background-repeat: no-repeat; 
+.titulo {
+    height: 50vh;
+    background-image: url('../img/imgP.jpg');
+    background-repeat: no-repeat;
     background-size: cover;
-    
+
 }
-.titulo{
-    margin-top: -1.5rem; 
+
+.titulo {
+    margin-top: -1.5rem;
+}
+
+.titulo:hover {
+    filter: saturate(180%);
+    transition: all .4s ease-in-out;
 }
 
 .titulo p,
-.tituloS{
-    font-size: 55px; 
-    font-weight:600; 
+.tituloS {
+    font-size: 55px;
+    font-weight: 600;
     -webkit-text-stroke: 3px rgb(31, 41, 43);
     text-shadow: 4px 2px rgb(255, 0, 0);
 }
+
 .titulo p::selection {
     background: #000;
     color: #fff;
 }
-.pri{
-    background: var(--gray) !important; 
+
+.pri {
+    background: var(--gray) !important;
 }
-.sec{
+
+.sec {
     background: var(--gray-light) !important;
 }
-.imgQsomos{
+
+.imgQsomos {
     width: 30%;
     height: 200px;
 }
-.imgQsomos img{
+
+.imgQsomos img {
     width: 100%;
     height: 100%;
 }
-.post{
+
+.post {
     width: 25%;
 }
-.galery img{
+
+#container-img:hover .imgS {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    transition: all .4s ease-in-out;
+}
+
+.img-desc {
+    filter: blur(3px);
+}
+
+.img-desc:hover {
+    filter: blur(0px);
+    transition: all .4s ease-in-out;
+}
+
+.galery img {
     width: 30%;
     height: 250px;
 }
-.bi-whatsapp{
+
+.bi-whatsapp {
     color: #27c427;
 }
-.bi-facebook{
+
+.bi-facebook {
     color: #3f76bd;
 }
-.bi-twitter{
+
+.bi-twitter {
     color: #39c2cc;
 }
-.bi-instagram{
+
+.bi-instagram {
     color: #c55a47;
 }
 
-.container{
+.container {
     border-radius: 4px 4px 4px 4px;
 }
 
 .placeholder-white::placeholder {
     color: rgb(204, 204, 204) !important;
 }
-.page-link{
-    background: #181818 !important; 
+
+.page-link {
+    background: #181818 !important;
     color: #444444 !important;
 }
-.page-item.active span.page-link{
+
+.page-item.active span.page-link {
     color: rgb(255, 217, 0) !important;
 }
-.page-item a.page-link{
+
+.page-item a.page-link {
     color: #fff !important;
 
 }
-#ui-id-1{
+
+#ui-id-1 {
     z-index: 9999;
     background-color: var(--gray);
     border-radius: 4px;
     border: 1px solid var(--gray-light);
     color: #fff;
 }
-#ui-id-1 li{
+
+#ui-id-1 li {
     border-bottom: 1px solid var(--gray-light);
 }
 
@@ -92,20 +129,20 @@
 
 
 @media screen and (max-width: 1199px) {
-    .post{
+    .post {
         width: 45%;
     }
 }
 
 @media screen and (max-width: 950px) {
-    .footerResponsivo{
+    .footerResponsivo {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 }
 
 @media screen and (max-width: 430px) {
-    .post{
+    .post {
         width: 85% !important;
     }
 }

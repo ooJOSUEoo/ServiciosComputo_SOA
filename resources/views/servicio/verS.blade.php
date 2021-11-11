@@ -8,12 +8,11 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
 </style>
 <div class="container">
     <div class=" w-100 d-flex justify-content-center align-items-center bg-secondary mb-3" style="min-height: 40vh">
-        <div class="w-50 d-flex justify-content-center align-items-center">
-            <img class="w-100" src="{{asset('storage').'/'.$servicio->Logo}}"
+        <div class="w-50 d-flex justify-content-center align-items-center overflow-hidden" id="container-img">
+            <img class="imgS w-100" src="{{asset('storage').'/'.$servicio->Logo}}"
                 alt="Imagen principal de {{$servicio->NombreS}}">
             @if($servicio->TipoS == '1')
             <p class="text-center text-primary position-absolute tituloS">{{$servicio->NombreS}}</p>
@@ -48,11 +47,11 @@
 
 
     <div class="galery container d-flex justify-content-around align-items-center bg-warning flex-wrap table-responsive py-4 mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img1S}}" alt="Imagen 1 de descripcion" class="post mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img2S}}" alt="Imagen 2 de descripcion" class="post mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img3S}}" alt="Imagen 3 de descripcion" class="post mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img4S}}" alt="Imagen 4 de descripcion" class="post mb-3">
-        <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="Imagen 5 de descripcion" class="post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img1S}}" alt="Imagen 1 de descripcion" class="img-desc post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img2S}}" alt="Imagen 2 de descripcion" class="img-desc post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img3S}}" alt="Imagen 3 de descripcion" class="img-desc post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img4S}}" alt="Imagen 4 de descripcion" class="img-desc post mb-3">
+        <img src="{{asset('storage').'/'.$servicio->Img5S}}" alt="Imagen 5 de descripcion" class="img-desc post mb-3">
     </div>
 
     <div class="container d-flex justify-content-around align-items-center bg-secondary flex-wrap py-4 mb-3">

@@ -49,14 +49,14 @@
             <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-primary px-1"
                 style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
                 @else
-                <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success px-1"
-                    style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
+                <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success px-1 overflow-hidden"
+                    style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);" id="container-img">
                     @endif
 
                     <p class="fs-2 text-center">{{$servicio->NombreS}}</p>
 
                     <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
-                        class="w-100" style="height: 200px;">
+                        class="w-100 imgS" style="height: 200px;">
                     <p class="text-secondary" id="ubicacionCortaMapa">{{$servicio->Longitud}} {{$servicio->Latitud}}</p>
                     <!--<div>
                         <a href="{{$servicio->Longitud}} {{$servicio->Latitud}}">Municipo</a>
