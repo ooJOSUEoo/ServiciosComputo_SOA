@@ -36,8 +36,7 @@
     text-shadow: 4px 2px rgb(255, 0, 0);
 }
 
-.titulo p::before,
-.tituloS::before {
+.titulo p::before{
     content: '';
     background-color: red;
     width: 2px;
