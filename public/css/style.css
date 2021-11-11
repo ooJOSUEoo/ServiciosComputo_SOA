@@ -3,6 +3,14 @@
     --gray-light: #444444;
 }
 
+.tituloHeader{
+    text-shadow: 2px 1px #00ee00;
+}
+
+.tituloHeader:hover{
+    text-shadow: 2px 1px #17e4ff;
+}
+
 .titulo {
     height: 50vh;
     background-image: url('../img/imgP.jpg');
@@ -26,6 +34,18 @@
     font-weight: 600;
     -webkit-text-stroke: 3px rgb(31, 41, 43);
     text-shadow: 4px 2px rgb(255, 0, 0);
+}
+
+.titulo p::before,
+.tituloS::before {
+    content: '';
+    background-color: red;
+    width: 2px;
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    right: -6px;
+    animation: blinkNaim 500ms linear infinite;
 }
 
 .titulo p::selection {
@@ -62,7 +82,7 @@
 }
 
 .img-desc {
-    filter: blur(3px);
+    filter: blur(5px);
 }
 
 .img-desc:hover {

@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/titulo.js') }}" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- Fonts -->
@@ -34,7 +35,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm pri fixed-top">
             <div class="container-xxl">
-                <a class="navbar-brand text-white fs-3" href="{{ url('/') }}" style="text-shadow: 2px 1px #00ee00;">
+                <a class="tituloHeader navbar-brand text-white fs-3" href="{{ url('/') }}">
                     Servicios Computo
                 </a>
 

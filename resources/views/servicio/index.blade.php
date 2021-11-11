@@ -19,7 +19,7 @@
 @endif
 
 <div class="titulo w-100 d-flex justify-content-center align-items-center">
-    <p class="text-center text-white position-absolute">SERVICIOS DE COMPUTO</p>
+    <p class="text-center text-white position-absolute" id="tituloPr"></p>
 </div>
 <div class="container">
     <div class="container mb-4">
