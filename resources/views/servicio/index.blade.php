@@ -47,7 +47,7 @@
             @foreach($servicios as $servicio)
             @if($servicio->TipoS == '1')
             <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-primary px-1"
-                style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
+                style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);" id="container-img">
                 @else
                 <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success px-1 overflow-hidden"
                     style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);" id="container-img">
@@ -88,6 +88,9 @@
                     @endif
                 </div>
                 @endforeach
+            </div>
+            <div class="container d-flex justify-content-center">
+                <a href="{{url('servicio/streaming')}}" class="btn btn-dark"><i class="bi bi-camera-video"></i> Videos para entender mejor el proposito de la pagina</a>
             </div>
         </div>
     </div>

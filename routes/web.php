@@ -29,6 +29,9 @@ Route::get('/ayuda', function () {  //cuendo este /ayuda va a mostrar la vista d
     return view('servicio.ayuda');
 });
 
+Route::get('servicio/streaming', function () {  //cuendo este /ayuda va a mostrar la vista de servicio.ayuda
+    return view('servicio.streaming');
+});
 
 
 Route::resource('servicio', ServicioController::class)->middleware('auth')->except('show');  //autentificacion para que solo el admin pueda hacer crud
