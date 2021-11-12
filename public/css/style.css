@@ -21,6 +21,7 @@
 
 .titulo {
     margin-top: -1.5rem;
+    transition: all .4s ease-in-out;
 }
 
 .titulo:hover {
@@ -80,8 +81,13 @@
     transition: all .4s ease-in-out;
 }
 
+#container-img .imgS {
+    transition: all .4s ease-in-out;
+}
+
 .img-desc {
     filter: blur(5px);
+    transition: all .4s ease-in-out;
 }
 
 .img-desc:hover {

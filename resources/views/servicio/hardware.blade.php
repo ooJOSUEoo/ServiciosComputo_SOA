@@ -7,12 +7,14 @@
         <div class="d-flex flex-wrap justify-content-around mb-4 table-responsive align-items-center">
             @foreach($servicios as $servicio)
                 <div class="post my-2 mx-1 h-25 border-3 rounded-3 border-success px-1"
-                    style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);">
+                    style="border: solid; box-shadow: 0 .5rem 1rem rgba(0,0,0,.6);" id="container-img">
                     <p class="fs-2 text-center">{{$servicio->NombreS}}</p>
 
-                    <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
-                        class="w-100" style="height: 200px;">
-                    <p class="text-secondary" id="ubicacionCortaMapa">{{$servicio->Longitud}} {{$servicio->Latitud}}</p>
+                    <div class="overflow-hidden">
+                        <img src="{{asset('storage').'/'.$servicio->Logo}}" alt="servicio de: {{$servicio->NombreS}}"
+                            class="w-100 imgS" style="height: 200px;">
+                    </div>
+                    <!--<p class="text-secondary" id="ubicacionCortaMapa">{{$servicio->Longitud}} {{$servicio->Latitud}}</p>-->
                     <p class="fs-6 text-center">{{substr($servicio->DescripcionS,0, 80)}}...</p>
                     <form action="{{url('/servicio/'.$servicio->id)}}" method="get"
                         class="d-flex justify-content-center py-2">
